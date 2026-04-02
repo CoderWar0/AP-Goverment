@@ -1,0 +1,1145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AP U.S. Government & Politics — Complete Study Hub</title>
+<style>
+:root {
+  --primary: #1a3a5c;
+  --accent: #e63946;
+  --accent2: #457b9d;
+  --bg: #f4f6f8;
+  --card: #ffffff;
+  --text: #2b2d42;
+  --muted: #6c757d;
+  --success: #2a9d8f;
+  --warning: #e9c46a;
+  --border: #dee2e6;
+  --shadow: 0 2px 12px rgba(0,0,0,0.07);
+  --radius: 10px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);line-height:1.65;}
+
+/* ===== HEADER ===== */
+header{background:linear-gradient(135deg,#0d1b2a 0%,#1b2838 40%,#1a3a5c 100%);color:#fff;text-align:center;padding:2.8rem 1rem 2.2rem;position:relative;}
+header::after{content:'';position:absolute;bottom:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--accent),var(--warning),var(--success),var(--accent2));}
+header h1{font-size:2.1rem;font-weight:800;letter-spacing:-.5px;}
+header .sub{margin-top:.4rem;opacity:.8;font-size:1rem;}
+header .exam-date{display:inline-block;margin-top:.7rem;background:rgba(255,255,255,.15);padding:.35rem 1rem;border-radius:20px;font-size:.88rem;font-weight:600;}
+
+/* ===== NAV ===== */
+nav{background:#fff;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;box-shadow:0 1px 4px rgba(0,0,0,.06);}
+.nav-inner{max-width:1200px;margin:auto;display:flex;gap:.2rem;padding:.5rem .8rem;overflow-x:auto;scrollbar-width:thin;}
+nav button{flex-shrink:0;padding:.5rem .9rem;border:none;background:transparent;border-radius:6px;cursor:pointer;font-size:.85rem;font-weight:600;color:var(--muted);transition:all .2s;white-space:nowrap;}
+nav button:hover{background:#edf2f7;color:var(--text);}
+nav button.active{background:var(--primary);color:#fff;}
+
+/* ===== MAIN ===== */
+main{max-width:1200px;margin:1.5rem auto;padding:0 1rem;}
+.section{display:none;animation:fadeIn .3s ease;}
+.section.active{display:block;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+/* ===== UNIT HEADER ===== */
+.unit-hdr{padding:1.4rem 1.8rem;border-radius:var(--radius);margin-bottom:1.3rem;color:#fff;}
+.unit-hdr h2{font-size:1.45rem;}
+.unit-hdr p{opacity:.85;margin-top:.25rem;font-size:.95rem;}
+
+/* ===== CARDS ===== */
+.card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:1.4rem;margin-bottom:1.1rem;border-left:4px solid var(--accent2);}
+.card h3{font-size:1.1rem;margin-bottom:.5rem;color:var(--primary);}
+.card p,.card li{font-size:.93rem;}
+.card ul{padding-left:1.2rem;margin-top:.35rem;}
+.card li{margin-bottom:.25rem;}
+.card.red{border-left-color:var(--accent);}
+.card.green{border-left-color:var(--success);}
+.card.gold{border-left-color:var(--warning);}
+
+/* ===== CHEAT SHEET ===== */
+.cheat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:1rem;}
+.cheat-box{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;}
+.cheat-box .cheat-title{padding:.7rem 1rem;font-weight:700;font-size:.92rem;color:#fff;cursor:pointer;display:flex;justify-content:space-between;align-items:center;}
+.cheat-box .cheat-body{padding:0 1rem;max-height:0;overflow:hidden;transition:max-height .35s ease,padding .35s ease;font-size:.88rem;}
+.cheat-box.open .cheat-body{max-height:2000px;padding:.6rem 1rem 1rem;}
+.cheat-box .cheat-body table{width:100%;border-collapse:collapse;font-size:.85rem;}
+.cheat-box .cheat-body td,.cheat-box .cheat-body th{padding:.35rem .5rem;border-bottom:1px solid #eee;text-align:left;}
+.cheat-box .cheat-body th{font-weight:700;color:var(--primary);}
+.cheat-arrow{transition:transform .3s;}
+.cheat-box.open .cheat-arrow{transform:rotate(180deg);}
+
+/* ===== TERMS ===== */
+.terms-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:.8rem;margin-top:.8rem;}
+.term-card{background:var(--card);border-radius:8px;padding:.9rem 1rem;box-shadow:var(--shadow);cursor:pointer;transition:transform .2s;border-top:3px solid var(--accent);position:relative;}
+.term-card:hover{transform:translateY(-2px);}
+.term-word{font-weight:700;font-size:.95rem;color:var(--primary);}
+.term-def{margin-top:.35rem;font-size:.87rem;color:var(--muted);max-height:0;overflow:hidden;transition:max-height .3s;}
+.term-card.open .term-def{max-height:200px;}
+.tap-hint{font-size:.72rem;color:#adb5bd;margin-top:.2rem;}
+.term-card.open .tap-hint{display:none;}
+
+/* Search */
+.search-bar{display:flex;gap:.5rem;margin-bottom:1rem;}
+.search-bar input{flex:1;padding:.55rem .8rem;border:2px solid var(--border);border-radius:8px;font-size:.9rem;outline:none;transition:border .2s;}
+.search-bar input:focus{border-color:var(--accent2);}
+
+/* ===== QUIZ ===== */
+.quiz-box{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:1.4rem;margin-bottom:1.2rem;}
+.quiz-box .q-label{display:inline-block;background:var(--primary);color:#fff;font-size:.72rem;font-weight:700;padding:.15rem .5rem;border-radius:4px;margin-bottom:.5rem;text-transform:uppercase;}
+.quiz-box .q-text{font-size:.97rem;font-weight:600;margin-bottom:.7rem;line-height:1.5;}
+.quiz-box .options label{display:block;padding:.55rem .75rem;margin-bottom:.35rem;border-radius:6px;border:2px solid var(--border);cursor:pointer;transition:all .2s;font-size:.9rem;}
+.quiz-box .options label:hover{border-color:var(--accent2);background:#f0f7fb;}
+.quiz-box .options label.correct{border-color:var(--success);background:#d4edda;}
+.quiz-box .options label.wrong{border-color:var(--accent);background:#f8d7da;}
+.quiz-box .options label.disabled{pointer-events:none;opacity:.85;}
+.explanation{margin-top:.7rem;padding:.7rem;border-radius:6px;background:#e8f4f8;font-size:.87rem;display:none;line-height:1.55;}
+.explanation.show{display:block;}
+
+/* Score bar */
+.score-bar{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:1rem 1.3rem;margin-bottom:1.2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem;}
+.score-text{font-size:1.05rem;font-weight:700;color:var(--primary);}
+.progress-wrap{background:#e9ecef;border-radius:20px;height:8px;width:180px;overflow:hidden;}
+.progress-fill{height:100%;border-radius:20px;background:linear-gradient(90deg,var(--success),var(--accent2));transition:width .4s;}
+.btn{padding:.45rem 1rem;border:none;border-radius:6px;cursor:pointer;font-weight:600;font-size:.85rem;transition:all .2s;}
+.btn-red{background:var(--accent);color:#fff;}.btn-red:hover{background:#c1121f;}
+.btn-blue{background:var(--accent2);color:#fff;}.btn-blue:hover{background:#3a6d8c;}
+.btn-green{background:var(--success);color:#fff;}.btn-green:hover{background:#218071;}
+
+/* ===== FRQ ===== */
+.frq-box{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:1.4rem;margin-bottom:1.3rem;border-left:4px solid var(--accent);}
+.frq-box h3{color:var(--primary);font-size:1.05rem;margin-bottom:.5rem;}
+.frq-box .frq-type{display:inline-block;background:var(--accent);color:#fff;font-size:.7rem;font-weight:700;padding:.15rem .5rem;border-radius:4px;margin-bottom:.6rem;text-transform:uppercase;}
+.frq-box .stimulus{background:#f8f9fa;border-left:3px solid var(--accent2);padding:.8rem 1rem;margin:.6rem 0;border-radius:4px;font-size:.88rem;line-height:1.6;}
+.frq-box .parts{margin-top:.6rem;}
+.frq-box .parts p{margin-bottom:.4rem;font-size:.9rem;}
+.frq-box .parts strong{color:var(--primary);}
+.frq-reveal{margin-top:.8rem;}
+.frq-reveal .frq-answer{display:none;background:#e8f4f8;padding:.8rem 1rem;border-radius:6px;font-size:.87rem;margin-top:.5rem;line-height:1.55;}
+.frq-reveal .frq-answer.show{display:block;}
+
+/* ===== TIPS ===== */
+.tip-card{background:linear-gradient(135deg,#fff8e1,#fff3cd);border-left:4px solid var(--warning);border-radius:var(--radius);padding:1.1rem 1.3rem;margin-bottom:.9rem;box-shadow:var(--shadow);}
+.tip-card h3{color:#856404;font-size:1rem;margin-bottom:.25rem;}
+.tip-card p{font-size:.9rem;color:#664d03;}
+
+/* ===== RESOURCES ===== */
+.resource-link{display:flex;align-items:center;gap:.6rem;padding:.7rem 1rem;background:var(--card);border-radius:8px;box-shadow:var(--shadow);margin-bottom:.6rem;text-decoration:none;color:var(--text);transition:transform .2s,box-shadow .2s;border-left:3px solid var(--accent2);}
+.resource-link:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(0,0,0,.12);}
+.resource-link .r-title{font-weight:700;font-size:.92rem;}
+.resource-link .r-desc{font-size:.8rem;color:var(--muted);}
+
+/* ===== TAB SYSTEM for sub-sections ===== */
+.tabs{display:flex;gap:.3rem;margin-bottom:1rem;flex-wrap:wrap;}
+.tab-btn{padding:.4rem .9rem;border:2px solid var(--border);background:#fff;border-radius:6px;cursor:pointer;font-size:.83rem;font-weight:600;color:var(--muted);transition:all .2s;}
+.tab-btn:hover{border-color:var(--accent2);}
+.tab-btn.active{border-color:var(--primary);background:var(--primary);color:#fff;}
+.tab-content{display:none;animation:fadeIn .25s;}
+.tab-content.active{display:block;}
+
+/* ===== FOOTER ===== */
+footer{text-align:center;padding:2rem 1rem;color:var(--muted);font-size:.82rem;border-top:1px solid var(--border);margin-top:2.5rem;}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:640px){
+  header h1{font-size:1.4rem;}
+  .cheat-grid{grid-template-columns:1fr;}
+  .terms-grid{grid-template-columns:1fr;}
+  nav button{font-size:.78rem;padding:.4rem .6rem;}
+}
+
+/* Print friendly */
+@media print{
+  nav,.btn,.search-bar,.score-bar,.tabs,.tap-hint{display:none!important;}
+  .section,.tab-content,.cheat-box .cheat-body,.term-def,.explanation,.frq-answer{display:block!important;max-height:none!important;padding:.5rem!important;}
+  .cheat-box.open .cheat-body{padding:.5rem 1rem!important;}
+  body{font-size:11pt;}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>AP U.S. Government &amp; Politics</h1>
+  <p class="sub">Complete Study Hub — Cheat Sheet, MCQ Practice, Study Guides &amp; FRQ Practice</p>
+  <div class="exam-date">Exam Date: May 5, 2026 at 12:00 PM</div>
+</header>
+
+<nav>
+  <div class="nav-inner">
+    <button class="active" onclick="showSection('home',this)">Home</button>
+    <button onclick="showSection('cheat',this)">Cheat Sheet</button>
+    <button onclick="showSection('guide',this)">Study Guide</button>
+    <button onclick="showSection('terms',this)">Key Terms</button>
+    <button onclick="showSection('mcq',this)">MCQ Practice</button>
+    <button onclick="showSection('frq',this)">FRQ Practice</button>
+    <button onclick="showSection('tips',this)">Exam Tips</button>
+    <button onclick="showSection('resources',this)">Resources</button>
+  </div>
+</nav>
+
+<main>
+
+<!-- ============================================================ -->
+<!-- HOME -->
+<!-- ============================================================ -->
+<div id="home" class="section active">
+  <div class="unit-hdr" style="background:linear-gradient(135deg,var(--primary),var(--accent));">
+    <h2>Welcome, Future AP Scholar!</h2>
+    <p>Everything you need to earn a 4 or 5 — all in one page.</p>
+  </div>
+
+  <div class="card">
+    <h3>What's Inside</h3>
+    <ul>
+      <li><strong>Cheat Sheet</strong> — One-page quick-reference for every unit, all 15 required SCOTUS cases, and 9 foundational documents.</li>
+      <li><strong>Study Guide</strong> — In-depth review of all 5 units with key concepts explained.</li>
+      <li><strong>Key Terms</strong> — 50+ flashcard-style definitions you can click to reveal.</li>
+      <li><strong>MCQ Practice</strong> — 65 AP-style multiple-choice questions with detailed explanations.</li>
+      <li><strong>FRQ Practice</strong> — Practice prompts for all 4 FRQ types with sample answers.</li>
+      <li><strong>Exam Tips</strong> — Strategies for both the MCQ and FRQ sections.</li>
+      <li><strong>Resources</strong> — Links to the best free AP Gov prep resources online.</li>
+    </ul>
+  </div>
+
+  <div class="card green">
+    <h3>Exam Format</h3>
+    <ul>
+      <li><strong>Section I:</strong> 55 Multiple-Choice Questions — 80 minutes — 50% of score</li>
+      <li><strong>Section II:</strong> 4 Free-Response Questions — 100 minutes — 50% of score</li>
+      <li>FRQ Types: (1) Concept Application, (2) Quantitative Analysis, (3) SCOTUS Comparison, (4) Argument Essay</li>
+      <li>No penalty for wrong answers on MCQ — always answer every question!</li>
+    </ul>
+  </div>
+
+  <div class="card gold">
+    <h3>Unit Weights</h3>
+    <ul>
+      <li><strong>Unit 1:</strong> Foundations of American Democracy — 15–22%</li>
+      <li><strong>Unit 2:</strong> Interactions Among Branches — 25–36%</li>
+      <li><strong>Unit 3:</strong> Civil Liberties &amp; Civil Rights — 13–18%</li>
+      <li><strong>Unit 4:</strong> Political Ideologies &amp; Beliefs — 10–15%</li>
+      <li><strong>Unit 5:</strong> Political Participation — 20–27%</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- CHEAT SHEET -->
+<!-- ============================================================ -->
+<div id="cheat" class="section">
+  <div class="unit-hdr" style="background:linear-gradient(135deg,#264653,#2a9d8f);">
+    <h2>Cheat Sheet</h2>
+    <p>Quick-reference for everything — click each box to expand. Print-friendly!</p>
+  </div>
+
+  <div class="cheat-grid" id="cheatGrid"></div>
+</div>
+
+<!-- ============================================================ -->
+<!-- STUDY GUIDE -->
+<!-- ============================================================ -->
+<div id="guide" class="section">
+  <div class="unit-hdr" style="background:linear-gradient(135deg,var(--primary),var(--accent2));">
+    <h2>Comprehensive Study Guide</h2>
+    <p>Deep-dive into each unit — all the content you need.</p>
+  </div>
+
+  <div class="tabs" id="guideTabs">
+    <button class="tab-btn active" onclick="showTab('guide','g1',this)">Unit 1</button>
+    <button class="tab-btn" onclick="showTab('guide','g2',this)">Unit 2</button>
+    <button class="tab-btn" onclick="showTab('guide','g3',this)">Unit 3</button>
+    <button class="tab-btn" onclick="showTab('guide','g4',this)">Unit 4</button>
+    <button class="tab-btn" onclick="showTab('guide','g5',this)">Unit 5</button>
+  </div>
+
+  <!-- UNIT 1 -->
+  <div id="g1" class="tab-content active">
+    <div class="card"><h3>Enlightenment Influences</h3><p>The Founders drew from Enlightenment thinkers. <strong>John Locke</strong> argued for natural rights (life, liberty, property) and government by consent — ideas that shaped the Declaration of Independence. <strong>Montesquieu</strong> advocated separation of powers into legislative, executive, and judicial branches. <strong>Rousseau</strong> developed the social contract theory: government is legitimate only when it has the consent of the governed.</p></div>
+
+    <div class="card"><h3>Declaration of Independence (1776)</h3><p>Written by Thomas Jefferson, the Declaration articulated the philosophical justification for revolution. It asserts that people have unalienable natural rights, government derives its power from the consent of the governed, and people have the right to alter or abolish a government that fails to protect their rights. It is one of the 9 required foundational documents.</p></div>
+
+    <div class="card"><h3>Articles of Confederation (1781–1789)</h3><p>The first governing document of the U.S. created a weak central government with no executive branch, no national judiciary, no power to tax, no power to regulate commerce, and required unanimous consent to amend. Shays' Rebellion (1786–87) exposed its weaknesses and spurred the call for a Constitutional Convention.</p></div>
+
+    <div class="card"><h3>Constitutional Convention &amp; Key Compromises</h3>
+    <ul>
+      <li><strong>Great (Connecticut) Compromise:</strong> Bicameral legislature — Senate with equal representation + House with proportional representation.</li>
+      <li><strong>Three-Fifths Compromise:</strong> Enslaved persons counted as 3/5 of a person for representation and taxation.</li>
+      <li><strong>Electoral College:</strong> Indirect election of the president — compromise between congressional selection and direct popular vote.</li>
+      <li><strong>Commerce &amp; Slave Trade Compromise:</strong> Congress could regulate interstate commerce but couldn't ban the slave trade for 20 years.</li>
+    </ul></div>
+
+    <div class="card"><h3>Constitutional Principles</h3>
+    <ul>
+      <li><strong>Separation of Powers:</strong> Three branches with distinct functions.</li>
+      <li><strong>Checks &amp; Balances:</strong> Each branch can limit the others.</li>
+      <li><strong>Federalism:</strong> Power divided between national and state governments.</li>
+      <li><strong>Republicanism:</strong> Representative democracy — elected officials govern on behalf of the people.</li>
+      <li><strong>Popular Sovereignty:</strong> Government authority comes from the people.</li>
+      <li><strong>Limited Government:</strong> Government power is restricted by the Constitution.</li>
+    </ul></div>
+
+    <div class="card red"><h3>Federalist vs. Anti-Federalist Debate</h3>
+    <ul>
+      <li><strong>Federalists</strong> (Hamilton, Madison, Jay): Supported ratification. A large republic controls factions (<em>Federalist No. 10</em>). Separation of powers prevents tyranny (<em>Federalist No. 51</em>). Strong executive needed (<em>Federalist No. 70</em>). Independent judiciary protects rights (<em>Federalist No. 78</em>).</li>
+      <li><strong>Anti-Federalists</strong> (<em>Brutus No. 1</em>): Feared a powerful central government. Believed a large republic couldn't represent the people effectively. Demanded a Bill of Rights as a condition for ratification.</li>
+    </ul></div>
+
+    <div class="card"><h3>Federalism in Practice</h3>
+    <ul>
+      <li><strong>Enumerated Powers:</strong> Explicitly granted to Congress in Article I, Sec. 8.</li>
+      <li><strong>Necessary &amp; Proper (Elastic) Clause:</strong> Grants implied powers to Congress.</li>
+      <li><strong>Commerce Clause:</strong> Power to regulate interstate commerce — expanded federal authority over time.</li>
+      <li><strong>Supremacy Clause:</strong> Federal law is the supreme law of the land (Article VI).</li>
+      <li><strong>10th Amendment:</strong> Powers not delegated to the federal government are reserved to the states.</li>
+      <li><strong>Fiscal Federalism:</strong> Categorical grants (specific purpose), block grants (broad purpose), revenue sharing, mandates (funded and unfunded).</li>
+    </ul></div>
+  </div>
+
+  <!-- UNIT 2 -->
+  <div id="g2" class="tab-content">
+    <div class="card"><h3>Congress: Structure &amp; Powers</h3>
+    <ul>
+      <li><strong>House of Representatives:</strong> 435 members, 2-year terms, proportional representation. Initiates revenue bills, impeaches officials, chooses president if no Electoral College majority. Led by Speaker of the House.</li>
+      <li><strong>Senate:</strong> 100 members, 6-year terms (staggered), equal representation. Confirms presidential appointments, ratifies treaties (2/3 vote), conducts impeachment trials. Filibuster and cloture (60 votes).</li>
+      <li><strong>Legislative Process:</strong> Bill introduced → committee referral → markup → rules committee (House) → floor debate → vote → conference committee (if needed) → presidential action.</li>
+      <li><strong>Powers of Congress:</strong> Power of the purse, oversight, investigations, impeachment, advice and consent, declare war.</li>
+    </ul></div>
+
+    <div class="card"><h3>The Presidency</h3>
+    <ul>
+      <li><strong>Formal (Constitutional) Powers:</strong> Commander-in-chief, veto power, appointment power, treaty-making (with Senate), pardon power, State of the Union address.</li>
+      <li><strong>Informal Powers:</strong> Executive orders, executive agreements, signing statements, bully pulpit, agenda setting, party leader.</li>
+      <li><strong>The Bureaucracy:</strong> 15 cabinet departments, independent agencies (NASA, CIA), independent regulatory commissions (FCC, SEC), government corporations (USPS, Amtrak).</li>
+      <li><strong>Policy-Making:</strong> Iron triangles (committee + agency + interest group) and issue networks (broader coalitions of actors).</li>
+    </ul></div>
+
+    <div class="card"><h3>The Federal Judiciary</h3>
+    <ul>
+      <li><strong>Structure:</strong> District courts → Circuit Courts of Appeals → Supreme Court (9 justices, life tenure).</li>
+      <li><strong>Judicial Review:</strong> Established in <em>Marbury v. Madison</em> (1803) — power to declare laws/actions unconstitutional.</li>
+      <li><strong>Judicial Philosophy:</strong> Judicial activism (broadly interpret the Constitution to advance rights) vs. judicial restraint (defer to the elected branches and precedent).</li>
+      <li><strong>Case Selection:</strong> Writ of certiorari, Rule of Four, amicus curiae briefs.</li>
+      <li><strong>Appointment Process:</strong> Presidential nomination → ABA evaluation → Senate Judiciary Committee hearings → Senate confirmation vote (simple majority).</li>
+    </ul></div>
+
+    <div class="card green"><h3>Checks &amp; Balances Summary</h3>
+    <ul>
+      <li><strong>Legislative checks on Executive:</strong> Override veto (2/3), power of the purse, confirm appointments, ratify treaties, impeachment, War Powers Resolution.</li>
+      <li><strong>Legislative checks on Judicial:</strong> Confirm judges, impeach judges, amend Constitution, change court jurisdiction.</li>
+      <li><strong>Executive checks on Legislative:</strong> Veto, pocket veto, executive orders, signing statements.</li>
+      <li><strong>Executive checks on Judicial:</strong> Nominate judges, pardon power.</li>
+      <li><strong>Judicial checks on Legislative:</strong> Judicial review of laws.</li>
+      <li><strong>Judicial checks on Executive:</strong> Judicial review of executive actions.</li>
+    </ul></div>
+  </div>
+
+  <!-- UNIT 3 -->
+  <div id="g3" class="tab-content">
+    <div class="card"><h3>Bill of Rights &amp; Selective Incorporation</h3><p>The first 10 amendments protect individual liberties from the federal government. Through <strong>selective incorporation</strong> via the 14th Amendment's Due Process Clause, most Bill of Rights protections now also apply to state governments. Not all rights have been incorporated — the process has been case-by-case through Supreme Court decisions.</p></div>
+
+    <div class="card"><h3>First Amendment Freedoms</h3>
+    <ul>
+      <li><strong>Freedom of Religion:</strong> Establishment Clause (no state religion — <em>Engel v. Vitale</em>, school prayer banned) and Free Exercise Clause (right to practice religion — <em>Wisconsin v. Yoder</em>, Amish exemption from compulsory schooling).</li>
+      <li><strong>Freedom of Speech:</strong> Broadly protected but not absolute. <em>Schenck v. U.S.</em> (clear and present danger test). <em>Tinker v. Des Moines</em> (student symbolic speech protected — "students don't shed their rights at the schoolhouse gate"). Time, place, and manner restrictions allowed. Unprotected speech: incitement, true threats, fighting words, obscenity.</li>
+      <li><strong>Freedom of the Press:</strong> <em>New York Times v. U.S.</em> (prior restraint — government cannot stop publication of Pentagon Papers).</li>
+      <li><strong>Assembly &amp; Petition:</strong> Right to peacefully protest and petition the government.</li>
+    </ul></div>
+
+    <div class="card"><h3>Rights of the Accused</h3>
+    <ul>
+      <li><strong>4th Amendment:</strong> Unreasonable searches &amp; seizures. <em>Mapp v. Ohio</em> (exclusionary rule — illegally obtained evidence inadmissible).</li>
+      <li><strong>5th Amendment:</strong> Self-incrimination, double jeopardy, due process. <em>Miranda v. Arizona</em> (Miranda rights — must be informed of rights during arrest).</li>
+      <li><strong>6th Amendment:</strong> Right to counsel, speedy trial, jury trial. <em>Gideon v. Wainwright</em> (right to attorney in felony cases, even if you can't afford one).</li>
+      <li><strong>8th Amendment:</strong> Excessive bail, cruel and unusual punishment.</li>
+    </ul></div>
+
+    <div class="card"><h3>Right to Privacy</h3><p>Not explicitly in the Constitution but found in the "penumbras" of the 1st, 3rd, 4th, 5th, and 9th Amendments. <em>Griswold v. Connecticut</em> — right to privacy regarding contraception. <em>Roe v. Wade</em> — extended to abortion (overturned by <em>Dobbs v. Jackson Women's Health Organization</em>, 2022, returning the issue to states).</p></div>
+
+    <div class="card red"><h3>Civil Rights &amp; Equal Protection</h3>
+    <ul>
+      <li><strong>14th Amendment Equal Protection Clause:</strong> No state shall deny any person equal protection of the laws.</li>
+      <li><strong>Brown v. Board of Education (1954):</strong> Overturned <em>Plessy v. Ferguson</em>'s "separate but equal" — segregated schools inherently unequal.</li>
+      <li><strong>Civil Rights Act of 1964:</strong> Banned discrimination based on race, color, religion, sex, national origin in employment and public accommodations.</li>
+      <li><strong>Voting Rights Act of 1965:</strong> Eliminated literacy tests and other discriminatory voting practices.</li>
+      <li><strong>Levels of Judicial Scrutiny:</strong> Strict scrutiny (race, religion — compelling interest required), intermediate scrutiny (gender — important interest), rational basis (age, disability — legitimate interest).</li>
+      <li><strong>Affirmative Action:</strong> <em>Shaw v. Reno</em> (racial gerrymandering may violate Equal Protection).</li>
+    </ul></div>
+
+    <div class="card"><h3>2nd Amendment</h3><p><em>McDonald v. Chicago</em> (2010) — incorporated the 2nd Amendment right to bear arms to apply to state and local governments through the 14th Amendment's Due Process Clause.</p></div>
+  </div>
+
+  <!-- UNIT 4 -->
+  <div id="g4" class="tab-content">
+    <div class="card"><h3>Political Socialization</h3><p>The lifelong process of developing political attitudes and beliefs. Key agents: <strong>family</strong> (strongest early influence), schools, peers, media, religion, race/ethnicity, gender, and significant life events. Political socialization explains why people with similar backgrounds often hold similar political views.</p></div>
+
+    <div class="card"><h3>Political Ideologies</h3>
+    <ul>
+      <li><strong>Liberal:</strong> Favors government intervention in the economy (regulation, social programs, progressive taxation) but less in personal/social matters. Supports expanded civil rights, environmental protection, social safety net.</li>
+      <li><strong>Conservative:</strong> Favors limited government in the economy (free market, lower taxes, deregulation) but may support government involvement in social/moral issues. Emphasizes individual responsibility, traditional values, strong defense.</li>
+      <li><strong>Libertarian:</strong> Minimal government in both economic and social spheres — maximum individual freedom.</li>
+      <li><strong>Populist:</strong> Government involvement in both economic and social issues — often skeptical of elites.</li>
+    </ul></div>
+
+    <div class="card"><h3>Public Opinion &amp; Polling</h3>
+    <ul>
+      <li><strong>Scientific Polling:</strong> Random sampling, representative sample, appropriate sample size (usually ~1,000–1,500), margin of error, careful question wording.</li>
+      <li><strong>Types:</strong> Benchmark polls, tracking polls, entrance/exit polls, push polls (biased/illegitimate).</li>
+      <li><strong>Challenges:</strong> Sampling error, non-response bias, question wording bias, social desirability bias, selection bias.</li>
+      <li><strong>Understanding Polls:</strong> Margin of error of ±3% means the true value likely falls within 3 points of the reported number. If two candidates are within the margin of error, the race is a statistical tie.</li>
+    </ul></div>
+
+    <div class="card"><h3>Influences on Policy</h3>
+    <ul>
+      <li><strong>Trustee Model:</strong> Representatives use their own judgment for the public good.</li>
+      <li><strong>Delegate Model:</strong> Representatives vote according to constituents' wishes.</li>
+      <li><strong>Politico Model:</strong> Mix of both — depends on the issue.</li>
+      <li>Public opinion influences agenda, but policy changes often lag behind opinion shifts.</li>
+    </ul></div>
+  </div>
+
+  <!-- UNIT 5 -->
+  <div id="g5" class="tab-content">
+    <div class="card"><h3>Voting &amp; Elections</h3>
+    <ul>
+      <li><strong>Voter Turnout Factors:</strong> Education (strongest predictor), age, income, race/ethnicity, registration laws, election type (presidential vs. midterm), competitiveness of race.</li>
+      <li><strong>Historical Barriers:</strong> Poll taxes (banned by 24th Amendment), literacy tests, grandfather clauses, white primaries — eliminated by 15th, 19th, 24th, 26th Amendments and the Voting Rights Act of 1965.</li>
+      <li><strong>Modern Issues:</strong> Voter ID laws, gerrymandering, felon disenfranchisement, Motor Voter Act (1993), same-day registration.</li>
+      <li><strong>Types of Elections:</strong> Primary (open vs. closed), general, midterm. Electoral College for presidential elections (270 to win).</li>
+    </ul></div>
+
+    <div class="card"><h3>Political Parties</h3>
+    <ul>
+      <li><strong>Two-Party System:</strong> Democrats and Republicans dominate due to single-member district plurality (winner-take-all) voting — Duverger's Law.</li>
+      <li><strong>Party Functions:</strong> Recruit candidates, mobilize voters, organize government, provide accountability, simplify voting choices.</li>
+      <li><strong>Party Realignment:</strong> Major shifts in party coalitions (e.g., Southern realignment of 1960s–70s).</li>
+      <li><strong>Third Parties:</strong> Rarely win but influence agendas, introduce new ideas, and can have a spoiler effect.</li>
+      <li><strong>Party Decline/Dealignment:</strong> Rise of independents, split-ticket voting, weakened party identification.</li>
+    </ul></div>
+
+    <div class="card"><h3>Interest Groups &amp; Lobbying</h3>
+    <ul>
+      <li><strong>Types:</strong> Economic (Chamber of Commerce, AFL-CIO), ideological (ACLU, NRA), single-issue (MADD, Right to Life), public interest (Sierra Club, Common Cause).</li>
+      <li><strong>Tactics:</strong> Direct lobbying, litigation (amicus curiae briefs), grassroots mobilization, electioneering, PAC/Super PAC funding, revolving door.</li>
+      <li><strong>Iron Triangles:</strong> Congressional committee + bureaucratic agency + interest group = mutually beneficial policy relationship.</li>
+      <li><strong>Issue Networks:</strong> Broader, more fluid coalitions of actors who influence policy.</li>
+      <li><strong>Free-Rider Problem:</strong> People benefit from a group's efforts without contributing.</li>
+    </ul></div>
+
+    <div class="card"><h3>Campaign Finance</h3>
+    <ul>
+      <li><strong>FEC:</strong> Federal Election Commission — regulates and enforces campaign finance laws.</li>
+      <li><strong>Buckley v. Valeo (1976):</strong> Spending money is protected speech. Upheld contribution limits but struck down expenditure limits.</li>
+      <li><strong>Citizens United v. FEC (2010):</strong> Corporations and unions can make unlimited independent expenditures. Led to rise of Super PACs.</li>
+      <li><strong>PACs:</strong> Donate directly to candidates with contribution limits ($5,000/election).</li>
+      <li><strong>Super PACs:</strong> Unlimited independent expenditures, cannot coordinate with campaigns, must disclose donors.</li>
+      <li><strong>501(c)(4) "Dark Money":</strong> Social welfare organizations that can engage in political activity without disclosing donors.</li>
+    </ul></div>
+
+    <div class="card"><h3>The Media</h3>
+    <ul>
+      <li><strong>Functions:</strong> Agenda setting (what to think about), framing (how to think about it), priming (criteria for evaluation), gatekeeping, watchdog role.</li>
+      <li><strong>Traditional vs. New Media:</strong> Broadcast networks, cable news, newspapers vs. social media, blogs, podcasts, online outlets.</li>
+      <li><strong>Effects:</strong> Confirmation bias, echo chambers, horse-race journalism, sensationalism, 24-hour news cycle, declining trust in media.</li>
+    </ul></div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- KEY TERMS -->
+<!-- ============================================================ -->
+<div id="terms" class="section">
+  <div class="unit-hdr" style="background:linear-gradient(135deg,#264653,#2a9d8f);">
+    <h2>Key Terms &amp; Vocabulary</h2>
+    <p>Click any card to reveal its definition — use as flashcards!</p>
+  </div>
+  <div class="search-bar">
+    <input type="text" id="termSearch" placeholder="Search terms..." oninput="filterTerms()">
+  </div>
+  <div class="terms-grid" id="termsGrid"></div>
+</div>
+
+<!-- ============================================================ -->
+<!-- MCQ PRACTICE -->
+<!-- ============================================================ -->
+<div id="mcq" class="section">
+  <div class="unit-hdr" style="background:linear-gradient(135deg,#9b2226,#e63946);">
+    <h2>Multiple-Choice Practice</h2>
+    <p>65 AP-style questions — a full exam's worth of practice!</p>
+  </div>
+  <div class="score-bar" id="mcqScore">
+    <div>
+      <span class="score-text" id="mcqScoreText">Score: 0 / 0</span>
+      <div class="progress-wrap"><div class="progress-fill" id="mcqProgress" style="width:0%"></div></div>
+    </div>
+    <button class="btn btn-red" onclick="resetMCQ()">Reset Quiz</button>
+  </div>
+  <div class="tabs" id="mcqTabs">
+    <button class="tab-btn active" onclick="showTab('mcq','mcq-all',this)">All Questions</button>
+    <button class="tab-btn" onclick="showTab('mcq','mcq-u1',this)">Unit 1</button>
+    <button class="tab-btn" onclick="showTab('mcq','mcq-u2',this)">Unit 2</button>
+    <button class="tab-btn" onclick="showTab('mcq','mcq-u3',this)">Unit 3</button>
+    <button class="tab-btn" onclick="showTab('mcq','mcq-u45',this)">Units 4–5</button>
+  </div>
+  <div id="mcq-all" class="tab-content active"><div id="mcqContainerAll"></div></div>
+  <div id="mcq-u1" class="tab-content"><div id="mcqContainerU1"></div></div>
+  <div id="mcq-u2" class="tab-content"><div id="mcqContainerU2"></div></div>
+  <div id="mcq-u3" class="tab-content"><div id="mcqContainerU3"></div></div>
+  <div id="mcq-u45" class="tab-content"><div id="mcqContainerU45"></div></div>
+</div>
+
+<!-- ============================================================ -->
+<!-- FRQ PRACTICE -->
+<!-- ============================================================ -->
+<div id="frq" class="section">
+  <div class="unit-hdr" style="background:linear-gradient(135deg,#6a040f,#d00000);">
+    <h2>Free-Response Question Practice</h2>
+    <p>All 4 FRQ types with sample prompts and model answers.</p>
+  </div>
+  <div class="tabs">
+    <button class="tab-btn active" onclick="showTab('frq','frq-concept',this)">Concept Application</button>
+    <button class="tab-btn" onclick="showTab('frq','frq-quant',this)">Quantitative Analysis</button>
+    <button class="tab-btn" onclick="showTab('frq','frq-scotus',this)">SCOTUS Comparison</button>
+    <button class="tab-btn" onclick="showTab('frq','frq-argument',this)">Argument Essay</button>
+  </div>
+
+  <!-- FRQ 1: CONCEPT APPLICATION -->
+  <div id="frq-concept" class="tab-content active">
+    <div class="frq-box">
+      <span class="frq-type">FRQ #1 — Concept Application</span>
+      <h3>Practice Prompt</h3>
+      <div class="stimulus">
+        <p>A state legislature recently passed a law requiring all public school students to begin each day with a moment of silent meditation. Supporters argue this promotes discipline and focus. Opponents claim it violates constitutional protections. A group of parents has filed suit in federal court challenging the law.</p>
+      </div>
+      <div class="parts">
+        <p><strong>(a)</strong> Identify the clause in the First Amendment that is most relevant to the parents' legal challenge.</p>
+        <p><strong>(b)</strong> Explain how the Supreme Court's ruling in <em>Engel v. Vitale</em> (1962) would be relevant to the parents' case.</p>
+        <p><strong>(c)</strong> Describe an action the parents could take, other than filing suit, to influence education policy regarding religion in schools.</p>
+      </div>
+      <div class="frq-reveal">
+        <button class="btn btn-blue" onclick="this.nextElementSibling.classList.toggle('show')">Show/Hide Sample Answer</button>
+        <div class="frq-answer">
+          <p><strong>(a)</strong> The <strong>Establishment Clause</strong> of the First Amendment is most relevant. It prohibits the government from making any law "respecting an establishment of religion." A state-mandated moment of silent meditation could be viewed as promoting religious activity in public schools.</p>
+          <p><strong>(b)</strong> In <em>Engel v. Vitale</em>, the Supreme Court ruled that state-sponsored prayer in public schools violates the Establishment Clause, even if participation is voluntary. This precedent would support the parents' argument because a required moment of "silent meditation" could be interpreted as a government-endorsed religious practice, similar to the state-composed prayer struck down in <em>Engel</em>. The key principle is that the government cannot compose or mandate religious activities in public schools.</p>
+          <p><strong>(c)</strong> The parents could <strong>lobby their state legislators</strong> directly — contacting representatives, testifying at committee hearings, or organizing petitions to repeal the law. They could also form or join an <strong>interest group</strong> focused on separation of church and state, which could engage in grassroots mobilization, run media campaigns, or support political candidates who share their position.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="frq-box">
+      <span class="frq-type">FRQ #1 — Concept Application</span>
+      <h3>Practice Prompt 2</h3>
+      <div class="stimulus">
+        <p>The federal government wants to require all states to adopt uniform environmental standards for carbon emissions. Some states argue this is an overreach of federal power. The legislation cites the Commerce Clause as its constitutional authority. Several states have threatened to challenge the law.</p>
+      </div>
+      <div class="parts">
+        <p><strong>(a)</strong> Identify the constitutional clause the federal government is using to justify this legislation.</p>
+        <p><strong>(b)</strong> Explain how the ruling in <em>United States v. Lopez</em> (1995) could be used by states to challenge this legislation.</p>
+        <p><strong>(c)</strong> Explain how the ruling in <em>McCulloch v. Maryland</em> (1819) could be used by the federal government to defend this legislation.</p>
+      </div>
+      <div class="frq-reveal">
+        <button class="btn btn-blue" onclick="this.nextElementSibling.classList.toggle('show')">Show/Hide Sample Answer</button>
+        <div class="frq-answer">
+          <p><strong>(a)</strong> The <strong>Commerce Clause</strong> (Article I, Section 8, Clause 3), which gives Congress the power to regulate interstate commerce.</p>
+          <p><strong>(b)</strong> In <em>United States v. Lopez</em>, the Court ruled that Congress exceeded its Commerce Clause authority by passing the Gun-Free School Zones Act because carrying a gun near a school did not substantially affect interstate commerce. States could argue, similarly, that local carbon emissions do not have a sufficient nexus to interstate commerce, and that the federal government is overreaching by mandating uniform state environmental standards.</p>
+          <p><strong>(c)</strong> In <em>McCulloch v. Maryland</em>, the Court upheld broad congressional authority under the <strong>Necessary and Proper Clause</strong>, ruling that Congress has implied powers beyond those explicitly enumerated. The federal government could argue that regulating carbon emissions is "necessary and proper" for executing its enumerated power to regulate interstate commerce, since pollution crosses state lines and substantially affects the national economy.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FRQ 2: QUANTITATIVE ANALYSIS -->
+  <div id="frq-quant" class="tab-content">
+    <div class="frq-box">
+      <span class="frq-type">FRQ #2 — Quantitative Analysis</span>
+      <h3>Practice Prompt</h3>
+      <div class="stimulus">
+        <p>Use the data table below to answer the questions.</p>
+        <table style="width:100%;border-collapse:collapse;margin:.8rem 0;font-size:.88rem;">
+          <tr style="background:#1a3a5c;color:#fff;"><th style="padding:.5rem;text-align:left;">Year</th><th style="padding:.5rem;text-align:center;">Presidential Election Turnout (%)</th><th style="padding:.5rem;text-align:center;">Midterm Election Turnout (%)</th></tr>
+          <tr><td style="padding:.4rem;border-bottom:1px solid #ddd;">2012</td><td style="text-align:center;padding:.4rem;border-bottom:1px solid #ddd;">58.6%</td><td style="text-align:center;padding:.4rem;border-bottom:1px solid #ddd;">—</td></tr>
+          <tr><td style="padding:.4rem;border-bottom:1px solid #ddd;">2014</td><td style="text-align:center;padding:.4rem;border-bottom:1px solid #ddd;">—</td><td style="text-align:center;padding:.4rem;border-bottom:1px solid #ddd;">36.7%</td></tr>
+          <tr><td style="padding:.4rem;border-bottom:1px solid #ddd;">2016</td><td style="text-align:center;padding:.4rem;border-bottom:1px solid #ddd;">60.1%</td><td style="text-align:center;padding:.4rem;border-bottom:1px solid #ddd;">—</td></tr>
+          <tr><td style="padding:.4rem;border-bottom:1px solid #ddd;">2018</td><td style="text-align:center;padding:.4rem;border-bottom:1px solid #ddd;">—</td><td style="text-align:center;padding:.4rem;border-bottom:1px solid #ddd;">50.3%</td></tr>
+          <tr><td style="padding:.4rem;border-bottom:1px solid #ddd;">2020</td><td style="text-align:center;padding:.4rem;border-bottom:1px solid #ddd;">66.8%</td><td style="text-align:center;padding:.4rem;border-bottom:1px solid #ddd;">—</td></tr>
+          <tr><td style="padding:.4rem;border-bottom:1px solid #ddd;">2022</td><td style="text-align:center;padding:.4rem;border-bottom:1px solid #ddd;">—</td><td style="text-align:center;padding:.4rem;border-bottom:1px solid #ddd;">46.8%</td></tr>
+        </table>
+      </div>
+      <div class="parts">
+        <p><strong>(a)</strong> Describe a trend in voter turnout shown in the data.</p>
+        <p><strong>(b)</strong> Draw a conclusion about the difference between presidential and midterm election turnout. Explain why this difference occurs.</p>
+        <p><strong>(c)</strong> Explain how one specific reform could address the trend of lower midterm election turnout.</p>
+      </div>
+      <div class="frq-reveal">
+        <button class="btn btn-blue" onclick="this.nextElementSibling.classList.toggle('show')">Show/Hide Sample Answer</button>
+        <div class="frq-answer">
+          <p><strong>(a)</strong> Presidential election turnout has generally increased from 58.6% in 2012 to 66.8% in 2020. Midterm turnout spiked in 2018 (50.3%) compared to 2014 (36.7%) before declining slightly to 46.8% in 2022.</p>
+          <p><strong>(b)</strong> Presidential elections consistently have higher voter turnout than midterm elections. For example, the 2020 presidential election had 66.8% turnout compared to 46.8% in the 2022 midterm — a gap of 20 percentage points. This occurs because presidential elections receive significantly more media coverage, generate greater public interest and engagement, and voters perceive the stakes as higher. Candidates spend more on mobilization efforts during presidential years, and presidential elections have a "coattail effect" that brings more voters to the polls.</p>
+          <p><strong>(c)</strong> <strong>Automatic voter registration</strong> could increase midterm turnout by removing the registration barrier. Many eligible voters do not vote in midterms because they are not registered or their registration has lapsed. By automatically registering citizens when they interact with government agencies (like the DMV), states lower the cost of participation, making it more likely that people will vote even in lower-profile midterm elections.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FRQ 3: SCOTUS COMPARISON -->
+  <div id="frq-scotus" class="tab-content">
+    <div class="frq-box">
+      <span class="frq-type">FRQ #3 — SCOTUS Comparison</span>
+      <h3>Practice Prompt</h3>
+      <div class="stimulus">
+        <p><strong>Cohen v. California (1971)</strong></p>
+        <p>Paul Robert Cohen was arrested for wearing a jacket bearing a profane message opposing the Vietnam War draft in a Los Angeles courthouse. He was convicted of disturbing the peace under a California statute. Cohen appealed, arguing the statute violated his First Amendment right to free speech. The Supreme Court reversed the conviction, ruling that the government cannot ban speech simply because it is offensive. The Court held that Cohen's expression was protected because it was not directed at any specific person and did not constitute "fighting words."</p>
+      </div>
+      <div class="parts">
+        <p><strong>(a)</strong> Identify the constitutional clause common to both <em>Cohen v. California</em> and <em>Schenck v. United States</em>.</p>
+        <p><strong>(b)</strong> Based on the constitutional clause identified in part (a), explain why the facts of <em>Schenck v. United States</em> led to a different holding than the facts in <em>Cohen v. California</em>.</p>
+        <p><strong>(c)</strong> Describe an action that Congress could take if it disagreed with the holding in <em>Cohen v. California</em>.</p>
+      </div>
+      <div class="frq-reveal">
+        <button class="btn btn-blue" onclick="this.nextElementSibling.classList.toggle('show')">Show/Hide Sample Answer</button>
+        <div class="frq-answer">
+          <p><strong>(a)</strong> The <strong>First Amendment's Free Speech Clause</strong> is common to both cases.</p>
+          <p><strong>(b)</strong> In <em>Schenck v. United States</em>, the defendant distributed leaflets encouraging men to resist the draft during World War I. The Court upheld his conviction because his speech presented a <strong>"clear and present danger"</strong> — it was designed to actively undermine the military draft during wartime and could directly result in illegal action (draft evasion). In contrast, Cohen's profane message on a jacket, while offensive, was passive political expression in a public space. It was not directed at any individual, did not incite imminent lawless action, and did not constitute "fighting words." The different contexts — wartime incitement vs. passive political protest — explain why the Court restricted speech in <em>Schenck</em> but protected it in <em>Cohen</em>.</p>
+          <p><strong>(c)</strong> Congress could <strong>propose a constitutional amendment</strong> that would narrow First Amendment protections to exclude certain types of offensive expression in government buildings. This would require a 2/3 vote in both the House and Senate and ratification by 3/4 of state legislatures. This is the only way to effectively override a Supreme Court ruling on a constitutional issue, since the Court has the final word on constitutional interpretation.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="frq-box">
+      <span class="frq-type">FRQ #3 — SCOTUS Comparison</span>
+      <h3>Practice Prompt 2</h3>
+      <div class="stimulus">
+        <p><strong>Katzenbach v. McClung (1964)</strong></p>
+        <p>Ollie's Barbecue was a family-owned restaurant in Birmingham, Alabama, that refused to serve Black customers inside the restaurant. The federal government argued that the restaurant's discriminatory practices could be regulated under the Commerce Clause because a substantial portion of the food it served was purchased from out-of-state suppliers. The Supreme Court agreed, ruling that Congress could use the Commerce Clause to prohibit racial discrimination in businesses that had a connection to interstate commerce, even if the connection was indirect.</p>
+      </div>
+      <div class="parts">
+        <p><strong>(a)</strong> Identify the constitutional clause common to both <em>Katzenbach v. McClung</em> and <em>United States v. Lopez</em>.</p>
+        <p><strong>(b)</strong> Based on the constitutional clause identified in part (a), explain why the facts of <em>United States v. Lopez</em> led to a different holding than <em>Katzenbach v. McClung</em>.</p>
+        <p><strong>(c)</strong> Describe an action that Congress could take to address the issue raised in <em>United States v. Lopez</em> without relying on the Commerce Clause.</p>
+      </div>
+      <div class="frq-reveal">
+        <button class="btn btn-blue" onclick="this.nextElementSibling.classList.toggle('show')">Show/Hide Sample Answer</button>
+        <div class="frq-answer">
+          <p><strong>(a)</strong> The <strong>Commerce Clause</strong> (Article I, Section 8) is common to both cases.</p>
+          <p><strong>(b)</strong> In <em>Katzenbach v. McClung</em>, the Court found a sufficient connection to interstate commerce because Ollie's Barbecue purchased food from out-of-state suppliers. Discrimination in restaurants that use interstate goods substantially affects interstate commerce by discouraging travel and reducing the flow of goods. In <em>United States v. Lopez</em>, however, the Court found that carrying a gun in a school zone did not have a substantial effect on interstate commerce. The activity was too removed from economic activity for the Commerce Clause to apply. The key difference is the <strong>degree of connection to economic/commercial activity</strong>: purchasing food from interstate suppliers has a clear commercial nexus, while possessing a firearm near a school does not.</p>
+          <p><strong>(c)</strong> Congress could use its <strong>spending power</strong> (the "power of the purse") by conditioning federal education funding on states passing their own gun-free school zone laws. This approach — used successfully with the drinking age (South Dakota v. Dole) — doesn't rely on the Commerce Clause but achieves the same policy goal through fiscal federalism.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FRQ 4: ARGUMENT ESSAY -->
+  <div id="frq-argument" class="tab-content">
+    <div class="frq-box">
+      <span class="frq-type">FRQ #4 — Argument Essay</span>
+      <h3>Practice Prompt</h3>
+      <div class="parts">
+        <p>Develop an argument about whether the Electoral College should be maintained or replaced by a national popular vote for electing the president.</p>
+        <p>In your essay:</p>
+        <ul style="margin:.5rem 0 .5rem 1.2rem;font-size:.9rem;">
+          <li>Articulate a defensible claim or thesis</li>
+          <li>Support your claim with <strong>at least TWO</strong> pieces of specific and relevant evidence (from foundational documents, SCOTUS cases, the Constitution, or course concepts)</li>
+          <li>Use reasoning to explain why your evidence supports your claim</li>
+          <li>Respond to an opposing or alternate perspective</li>
+        </ul>
+      </div>
+      <div class="frq-reveal">
+        <button class="btn btn-blue" onclick="this.nextElementSibling.classList.toggle('show')">Show/Hide Sample Answer Outline</button>
+        <div class="frq-answer">
+          <p><strong>Sample Thesis (Pro–Electoral College):</strong> The Electoral College should be maintained because it upholds the principles of federalism embedded in the Constitution and ensures that less populated states retain a meaningful voice in presidential elections.</p>
+          <p><strong>Evidence 1:</strong> The <strong>Great Compromise</strong> at the Constitutional Convention balanced large-state and small-state interests by creating a bicameral legislature. The Electoral College extends this same logic to presidential elections — giving each state electors based on its total congressional representation (House + Senate). This means small states have a slightly larger per-capita voice, which mirrors the Founders' intent to balance popular rule with state sovereignty.</p>
+          <p><strong>Evidence 2:</strong> In <strong>Federalist No. 68</strong>, Alexander Hamilton argued that the Electoral College would ensure that the president is chosen by those most capable of analyzing the qualities needed for the office, and would prevent a demagogue from taking power through direct popular appeal alone. While modern electors rarely exercise independent judgment, the structural purpose of filtering direct democracy remains relevant.</p>
+          <p><strong>Counterargument &amp; Rebuttal:</strong> Opponents argue the Electoral College is undemocratic because a candidate can win without the popular vote (as in 2000 and 2016). While this is a valid concern, the United States is a federal republic, not a pure democracy. <strong>Federalist No. 10</strong> warns against the "tyranny of the majority" — Madison argued that pure majority rule can trample minority rights. The Electoral College ensures that candidates must build geographically broad coalitions rather than focusing only on high-population urban centers, which serves the Founders' goal of preventing faction dominance.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="frq-box">
+      <span class="frq-type">FRQ #4 — Argument Essay</span>
+      <h3>Practice Prompt 2</h3>
+      <div class="parts">
+        <p>Develop an argument about whether the power of the federal government relative to state governments has grown too large, or whether this expansion has been beneficial for protecting individual rights.</p>
+        <p>In your essay:</p>
+        <ul style="margin:.5rem 0 .5rem 1.2rem;font-size:.9rem;">
+          <li>Articulate a defensible claim or thesis</li>
+          <li>Support your claim with <strong>at least TWO</strong> pieces of specific and relevant evidence</li>
+          <li>Use reasoning to explain why your evidence supports your claim</li>
+          <li>Respond to an opposing or alternate perspective</li>
+        </ul>
+      </div>
+      <div class="frq-reveal">
+        <button class="btn btn-blue" onclick="this.nextElementSibling.classList.toggle('show')">Show/Hide Sample Answer Outline</button>
+        <div class="frq-answer">
+          <p><strong>Sample Thesis (Federal expansion has been beneficial):</strong> The expansion of federal power relative to state governments has been essential for protecting individual rights and ensuring equal treatment under the law, particularly for historically marginalized groups.</p>
+          <p><strong>Evidence 1:</strong> <strong>Brown v. Board of Education (1954)</strong> — The Supreme Court used federal judicial power to overturn state-mandated racial segregation in public schools. Without the authority of the federal government to enforce desegregation against resistant state governments, equal protection under the 14th Amendment would have remained hollow. This demonstrates that federal power was necessary to protect civil rights when states refused to do so.</p>
+          <p><strong>Evidence 2:</strong> The <strong>14th Amendment and selective incorporation</strong> — Through a series of Supreme Court decisions, the federal government has applied most Bill of Rights protections to state governments. Cases like <em>Gideon v. Wainwright</em> (right to counsel) and <em>Mapp v. Ohio</em> (exclusionary rule) ensured that individuals had consistent constitutional protections regardless of which state they lived in. Without federal incorporation, states could have denied fundamental rights to their residents.</p>
+          <p><strong>Counterargument &amp; Rebuttal:</strong> Anti-Federalists, as articulated in <strong>Brutus No. 1</strong>, warned that a powerful central government would become tyrannical and unresponsive to local needs. While this concern has some merit — unfunded mandates and "one-size-fits-all" policies can burden states — the historical record shows that states were often the primary violators of individual rights (slavery, Jim Crow, denial of due process). Federal intervention has been essential to ensure that constitutional guarantees are not merely aspirational but are actually enforced.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- EXAM TIPS -->
+<!-- ============================================================ -->
+<div id="tips" class="section">
+  <div class="unit-hdr" style="background:linear-gradient(135deg,#b08401,#e9c46a);color:#3d2e00;">
+    <h2>Exam Day Strategies</h2>
+    <p>Proven tips to help you score a 4 or 5!</p>
+  </div>
+
+  <div class="tip-card"><h3>Multiple-Choice Strategy</h3><p>Read ALL answer choices before selecting. The AP exam often has answers that are partially correct but not the BEST answer. Eliminate obviously wrong answers first. Look for qualifiers like "always," "never," "most," "least" — extreme words are often wrong. There is no penalty for guessing, so never leave a question blank. Budget ~1.5 minutes per question.</p></div>
+
+  <div class="tip-card"><h3>Concept Application FRQ</h3><p>You'll get a real-world scenario. <strong>Define</strong> the concept clearly. <strong>Apply</strong> it directly to the scenario using specific details from the stimulus. <strong>Explain</strong> the connection — don't just name-drop. One paragraph per part is usually sufficient.</p></div>
+
+  <div class="tip-card"><h3>Quantitative Analysis FRQ</h3><p>Cite <strong>specific numbers</strong> from the data ("turnout increased from 36.7% to 50.3%"). Describe the trend first, then explain a course concept or political principle that accounts for the pattern. Don't just describe — analyze.</p></div>
+
+  <div class="tip-card"><h3>SCOTUS Comparison FRQ</h3><p>Know ALL 15 required cases cold — facts, holding, and constitutional principle. The prompt describes a NON-required case and pairs it with a required one. Identify the <strong>shared constitutional principle</strong>. Then explain how different <strong>facts</strong> led to different <strong>holdings</strong>. Be specific about what distinguished the two cases.</p></div>
+
+  <div class="tip-card"><h3>Argument Essay</h3><p>Take a <strong>clear position</strong> in your thesis. Support with 2–3 strong pieces of evidence (foundational documents, SCOTUS cases, amendments, course concepts). Each piece of evidence needs <strong>reasoning</strong> — explain WHY it supports your argument. Address a counterargument and explain why your position is still stronger. Aim for a well-organized 4–5 paragraph essay.</p></div>
+
+  <div class="tip-card"><h3>15 Required SCOTUS Cases</h3><p>Marbury v. Madison, McCulloch v. Maryland, Schenck v. U.S., Brown v. Board, Baker v. Carr, Engel v. Vitale, Gideon v. Wainwright, Tinker v. Des Moines, NYT v. U.S., Wisconsin v. Yoder, Roe v. Wade, Shaw v. Reno, U.S. v. Lopez, McDonald v. Chicago, Citizens United v. FEC.</p></div>
+
+  <div class="tip-card"><h3>9 Required Foundational Documents</h3><p>Declaration of Independence, Articles of Confederation, U.S. Constitution, Federalist No. 10, Federalist No. 51, Federalist No. 70, Federalist No. 78, Brutus No. 1, Letter from Birmingham Jail (MLK Jr.).</p></div>
+
+  <div class="tip-card"><h3>Time Management</h3><p>Section I (MCQ): 80 minutes for 55 questions = ~1.5 min each. Section II (FRQ): 100 minutes for 4 questions. Suggested split: ~20 minutes for FRQs 1–3 each, ~40 minutes for the Argument Essay (FRQ 4). Always outline FRQ 4 before writing!</p></div>
+</div>
+
+<!-- ============================================================ -->
+<!-- RESOURCES -->
+<!-- ============================================================ -->
+<div id="resources" class="section">
+  <div class="unit-hdr" style="background:linear-gradient(135deg,var(--primary),#457b9d);">
+    <h2>Free Study Resources</h2>
+    <p>The best AP Government prep materials available online.</p>
+  </div>
+
+  <a class="resource-link" href="https://apcentral.collegeboard.org/courses/ap-united-states-government-and-politics/exam/past-exam-questions" target="_blank" rel="noopener">
+    <div><div class="r-title">College Board — Past AP Exam Questions</div><div class="r-desc">Official released FRQs with scoring guidelines and sample responses.</div></div>
+  </a>
+  <a class="resource-link" href="https://www.khanacademy.org/humanities/ap-us-government-and-politics" target="_blank" rel="noopener">
+    <div><div class="r-title">Khan Academy — AP US Gov Course</div><div class="r-desc">Free video lessons and practice for every unit, including required documents and cases.</div></div>
+  </a>
+  <a class="resource-link" href="https://fiveable.me/ap-gov" target="_blank" rel="noopener">
+    <div><div class="r-title">Fiveable — AP Gov Study Guides</div><div class="r-desc">Unit guides, study resources, and MCQ help verified for the 2026 exam.</div></div>
+  </a>
+  <a class="resource-link" href="https://highschooltestprep.com/ap/us-government/" target="_blank" rel="noopener">
+    <div><div class="r-title">High School Test Prep — AP Gov Practice Tests</div><div class="r-desc">Free MCQ practice tests with detailed answer explanations.</div></div>
+  </a>
+  <a class="resource-link" href="https://apstudents.collegeboard.org/courses/ap-united-states-government-and-politics/assessment" target="_blank" rel="noopener">
+    <div><div class="r-title">AP Students — Exam Overview</div><div class="r-desc">Official College Board page with exam format, scoring, and preparation details.</div></div>
+  </a>
+  <a class="resource-link" href="https://streetlaw.org/resources-for-ap-u-s-government-politics-exam-prep/" target="_blank" rel="noopener">
+    <div><div class="r-title">Street Law — AP Gov Exam Prep Resources</div><div class="r-desc">Required SCOTUS case summaries and teaching resources.</div></div>
+  </a>
+</div>
+
+</main>
+
+<footer>
+  <p>AP U.S. Government &amp; Politics Study Hub &bull; Created for Mr. Ignacio's Students</p>
+  <p style="margin-top:.25rem;">AP&reg; is a trademark of the College Board, which was not involved in the production of this resource.</p>
+</footer>
+
+<!-- ============================================================ -->
+<!-- JAVASCRIPT -->
+<!-- ============================================================ -->
+<script>
+// ===== NAVIGATION =====
+function showSection(id, btn) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function showTab(sectionPrefix, tabId, btn) {
+  const parent = btn.closest('.section') || btn.closest('div');
+  let scope = btn.parentElement;
+  // deactivate sibling tabs
+  scope.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  // show correct content
+  let allTabs = scope.parentElement.querySelectorAll('.tab-content');
+  allTabs.forEach(t => t.classList.remove('active'));
+  document.getElementById(tabId).classList.add('active');
+}
+
+// ===== CHEAT SHEET DATA =====
+const cheatData = [
+  {
+    title: "Unit 1 — Foundations of American Democracy",
+    color: "#1a3a5c",
+    rows: [
+      ["Enlightenment Ideas", "Locke (natural rights), Montesquieu (separation of powers), Rousseau (social contract)"],
+      ["Articles of Confederation", "Weak central govt, no executive/judiciary, no taxing power, unanimous amendment"],
+      ["Great Compromise", "Bicameral legislature: Senate (equal) + House (proportional)"],
+      ["Separation of Powers", "Legislative (makes law), Executive (enforces law), Judicial (interprets law)"],
+      ["Checks & Balances", "Veto, override, judicial review, confirmation, impeachment"],
+      ["Federalism", "Enumerated (federal), reserved (state), concurrent (shared) powers"],
+      ["Elastic Clause", "Necessary & Proper — gives Congress implied powers"],
+      ["Commerce Clause", "Congress regulates interstate commerce — expanded federal power"],
+      ["Supremacy Clause", "Federal law > state law (Article VI)"],
+      ["10th Amendment", "Reserved powers to the states"],
+      ["Federalist No. 10", "Large republic controls factions — Madison"],
+      ["Federalist No. 51", "Separation of powers prevents tyranny — Madison"],
+      ["Federalist No. 70", "Unitary executive is energetic & accountable — Hamilton"],
+      ["Federalist No. 78", "Judiciary is 'least dangerous branch,' needs independence — Hamilton"],
+      ["Brutus No. 1", "Anti-Fed: large republic = tyranny, need Bill of Rights"]
+    ]
+  },
+  {
+    title: "Unit 2 — Branches of Government",
+    color: "#264e78",
+    rows: [
+      ["House", "435 members, 2-yr terms, initiates revenue bills, impeaches, Speaker leads"],
+      ["Senate", "100 members, 6-yr terms, confirms appointments, ratifies treaties, filibuster/cloture"],
+      ["Legislative Process", "Bill → committee → floor → conference → president signs/vetoes"],
+      ["Presidential Formal Powers", "Veto, commander-in-chief, appointments, treaties, pardons, State of Union"],
+      ["Presidential Informal Powers", "Exec. orders, exec. agreements, signing statements, bully pulpit"],
+      ["Bureaucracy", "Cabinet depts, independent agencies, regulatory commissions, govt corporations"],
+      ["Iron Triangle", "Congressional committee + bureaucratic agency + interest group"],
+      ["Federal Courts", "District → Circuit Courts of Appeals → Supreme Court"],
+      ["Judicial Review", "Marbury v. Madison (1803) — courts can strike unconstitutional laws"],
+      ["Activism vs. Restraint", "Activism = broad interpretation; Restraint = defer to elected branches"],
+      ["Impeachment", "House impeaches (majority), Senate convicts & removes (2/3 vote)"]
+    ]
+  },
+  {
+    title: "Unit 3 — Civil Liberties & Civil Rights",
+    color: "#457b9d",
+    rows: [
+      ["Selective Incorporation", "14th Amend. Due Process applies Bill of Rights to states"],
+      ["Establishment Clause", "No state religion — Engel v. Vitale (school prayer banned)"],
+      ["Free Exercise Clause", "Right to practice religion — Wisconsin v. Yoder (Amish exemption)"],
+      ["Free Speech", "Schenck (clear & present danger), Tinker (student speech protected)"],
+      ["Free Press", "NYT v. U.S. (no prior restraint — Pentagon Papers)"],
+      ["4th Amendment", "No unreasonable searches — Mapp v. Ohio (exclusionary rule)"],
+      ["5th Amendment", "Self-incrimination, due process — Miranda v. Arizona (Miranda rights)"],
+      ["6th Amendment", "Right to counsel — Gideon v. Wainwright (lawyer for felony cases)"],
+      ["Right to Privacy", "Griswold v. CT (contraception), Roe v. Wade (overturned by Dobbs 2022)"],
+      ["Equal Protection", "14th Amend. — Brown v. Board (desegregation), strict/intermediate/rational basis"],
+      ["Civil Rights Act 1964", "Banned discrimination by race, color, religion, sex, national origin"],
+      ["Voting Rights Act 1965", "Eliminated literacy tests and discriminatory voting practices"],
+      ["2nd Amendment", "McDonald v. Chicago — incorporated right to bear arms to states"],
+      ["Shaw v. Reno", "Racial gerrymandering may violate Equal Protection"]
+    ]
+  },
+  {
+    title: "Unit 4 — Ideologies & Beliefs",
+    color: "#2a9d8f",
+    rows: [
+      ["Political Socialization", "Family (strongest), schools, peers, media, religion shape beliefs"],
+      ["Liberal", "Govt intervention in economy, less in social matters, progressive taxation"],
+      ["Conservative", "Limited govt in economy, traditional values, strong defense, free market"],
+      ["Libertarian", "Minimal govt in both economic and social issues"],
+      ["Scientific Polling", "Random sampling, ~1,000+ sample, margin of error, careful wording"],
+      ["Trustee Model", "Reps use own judgment for public good"],
+      ["Delegate Model", "Reps vote according to constituents' wishes"],
+      ["Sampling Error", "Margin of error — ±3% means true value within 3 pts of reported number"]
+    ]
+  },
+  {
+    title: "Unit 5 — Political Participation",
+    color: "#e63946",
+    rows: [
+      ["Voter Turnout", "Education = strongest predictor; presidential > midterm turnout"],
+      ["Voting Barriers (Historical)", "Poll taxes, literacy tests — eliminated by 15th, 19th, 24th, 26th Amends."],
+      ["Two-Party System", "Winner-take-all (Duverger's Law) → Democrats & Republicans dominate"],
+      ["Party Functions", "Recruit candidates, mobilize voters, organize govt, accountability"],
+      ["Interest Group Tactics", "Lobbying, litigation (amicus briefs), grassroots, PAC funding"],
+      ["PACs", "Donate directly to candidates, $5,000 limit per election"],
+      ["Super PACs", "Unlimited independent spending, no coordination, must disclose donors"],
+      ["Citizens United (2010)", "Corps & unions can make unlimited independent expenditures"],
+      ["Buckley v. Valeo (1976)", "Spending = speech; contribution limits OK, expenditure limits struck down"],
+      ["Media Functions", "Agenda setting, framing, priming, gatekeeping, watchdog"],
+      ["Gerrymandering", "Manipulating district boundaries to favor one party"],
+      ["Baker v. Carr (1962)", "Redistricting is a justiciable issue — 'one person, one vote'"]
+    ]
+  },
+  {
+    title: "15 Required SCOTUS Cases",
+    color: "#9b2226",
+    rows: [
+      ["Marbury v. Madison (1803)", "Established judicial review — courts can declare laws unconstitutional"],
+      ["McCulloch v. Maryland (1819)", "Federal supremacy, implied powers (Necessary & Proper Clause), states can't tax federal govt"],
+      ["Schenck v. U.S. (1919)", "Clear and present danger test — speech can be limited in wartime"],
+      ["Brown v. Board (1954)", "Overturned 'separate but equal' — segregated schools violate Equal Protection"],
+      ["Baker v. Carr (1962)", "Redistricting is justiciable — led to 'one person, one vote'"],
+      ["Engel v. Vitale (1962)", "State-sponsored school prayer violates Establishment Clause"],
+      ["Gideon v. Wainwright (1963)", "Right to court-appointed attorney in felony cases (6th Amend.)"],
+      ["Tinker v. Des Moines (1969)", "Students have free speech rights in school (symbolic speech protected)"],
+      ["NYT v. U.S. (1971)", "Prior restraint unconstitutional — Pentagon Papers published"],
+      ["Wisconsin v. Yoder (1972)", "Amish exempt from compulsory schooling (Free Exercise Clause)"],
+      ["Roe v. Wade (1973)", "Right to privacy includes abortion (overturned by Dobbs 2022)"],
+      ["Shaw v. Reno (1993)", "Racial gerrymandering subject to strict scrutiny"],
+      ["U.S. v. Lopez (1995)", "Commerce Clause has limits — gun-free school zones not interstate commerce"],
+      ["McDonald v. Chicago (2010)", "2nd Amendment incorporated to states via 14th Amendment"],
+      ["Citizens United v. FEC (2010)", "Corporate/union independent expenditures = protected speech"]
+    ]
+  },
+  {
+    title: "9 Required Foundational Documents",
+    color: "#6a040f",
+    rows: [
+      ["Declaration of Independence", "Natural rights, consent of the governed, right to revolution — Jefferson"],
+      ["Articles of Confederation", "First govt structure; weak central govt exposed need for Constitution"],
+      ["U.S. Constitution", "Framework of govt; separation of powers, federalism, amendment process"],
+      ["Federalist No. 10", "Large republic controls factions, prevents tyranny of majority — Madison"],
+      ["Federalist No. 51", "Separation of powers + checks & balances prevent tyranny — Madison"],
+      ["Federalist No. 70", "Unitary executive is energetic, decisive, accountable — Hamilton"],
+      ["Federalist No. 78", "Independent judiciary is 'least dangerous branch'; judicial review — Hamilton"],
+      ["Brutus No. 1", "Anti-Fed warning: large republic → tyranny; demanded Bill of Rights"],
+      ["Letter from Birmingham Jail", "MLK: moral obligation to disobey unjust laws; direct action justified"]
+    ]
+  }
+];
+
+function renderCheatSheet() {
+  const grid = document.getElementById('cheatGrid');
+  grid.innerHTML = '';
+  cheatData.forEach((sec, i) => {
+    const box = document.createElement('div');
+    box.className = 'cheat-box' + (i < 2 ? ' open' : '');
+    let tableRows = sec.rows.map(r => `<tr><td style="width:35%;font-weight:600;color:${sec.color}">${r[0]}</td><td>${r[1]}</td></tr>`).join('');
+    box.innerHTML = `<div class="cheat-title" style="background:${sec.color}" onclick="this.parentElement.classList.toggle('open')">
+      <span>${sec.title}</span><span class="cheat-arrow">▼</span>
+    </div><div class="cheat-body"><table>${tableRows}</table></div>`;
+    grid.appendChild(box);
+  });
+}
+renderCheatSheet();
+
+// ===== KEY TERMS =====
+const allTerms = [
+  {t:"Federalism",d:"System dividing power between national and state governments.",u:1},
+  {t:"Separation of Powers",d:"Division of government into legislative, executive, and judicial branches.",u:1},
+  {t:"Checks and Balances",d:"Mechanisms allowing each branch to limit the power of other branches.",u:1},
+  {t:"Popular Sovereignty",d:"Government authority derives from the consent of the people.",u:1},
+  {t:"Republicanism",d:"System where elected representatives govern on behalf of the people.",u:1},
+  {t:"Enumerated Powers",d:"Powers explicitly granted to Congress in Article I, Section 8.",u:1},
+  {t:"Implied Powers",d:"Powers not stated but authorized through the Necessary and Proper Clause.",u:1},
+  {t:"Reserved Powers",d:"Powers kept by the states under the 10th Amendment.",u:1},
+  {t:"Concurrent Powers",d:"Powers shared by both federal and state governments (e.g., taxation).",u:1},
+  {t:"Commerce Clause",d:"Congress's power to regulate interstate commerce (Art. I, Sec. 8).",u:1},
+  {t:"Supremacy Clause",d:"Federal law is the supreme law of the land (Article VI).",u:1},
+  {t:"Elastic (Necessary & Proper) Clause",d:"Gives Congress implied powers beyond those enumerated.",u:1},
+  {t:"Social Contract",d:"Theory that government is an agreement between rulers and the people.",u:1},
+  {t:"Natural Rights",d:"Locke's concept: life, liberty, and property — inherent human rights.",u:1},
+  {t:"Block Grant",d:"Federal money to states with broad spending flexibility.",u:1},
+  {t:"Categorical Grant",d:"Federal money for a specific, narrowly defined purpose.",u:1},
+  {t:"Mandate",d:"Federal requirement states must follow, often tied to funding.",u:1},
+  {t:"Judicial Review",d:"Power of courts to declare laws unconstitutional (Marbury v. Madison).",u:2},
+  {t:"Filibuster",d:"Senate tactic to delay a vote by extending debate; 60 votes for cloture.",u:2},
+  {t:"Cloture",d:"Senate procedure requiring 60 votes to end a filibuster.",u:2},
+  {t:"Veto",d:"President's power to reject a bill; Congress can override with 2/3 vote.",u:2},
+  {t:"Executive Order",d:"Presidential directive that manages federal operations (informal power).",u:2},
+  {t:"Bully Pulpit",d:"President's ability to use office prestige to shape public opinion.",u:2},
+  {t:"Iron Triangle",d:"Policy relationship: congressional committee + agency + interest group.",u:2},
+  {t:"Issue Network",d:"Broad, fluid coalition of actors that influence policy on a specific issue.",u:2},
+  {t:"Writ of Certiorari",d:"Supreme Court order to lower court to send case for review (Rule of Four).",u:2},
+  {t:"Amicus Curiae Brief",d:"'Friend of the court' brief from interest groups offering perspective on a case.",u:2},
+  {t:"Divided Government",d:"One party controls presidency, other controls one/both chambers of Congress.",u:2},
+  {t:"Incumbency Advantage",d:"Sitting officeholders' advantages: name recognition, fundraising, franking.",u:2},
+  {t:"Selective Incorporation",d:"Applying Bill of Rights to states via 14th Amendment Due Process Clause.",u:3},
+  {t:"Due Process",d:"Government can't deprive life, liberty, property without fair procedures (5th/14th).",u:3},
+  {t:"Equal Protection Clause",d:"14th Amendment: states must treat all people equally under the law.",u:3},
+  {t:"Establishment Clause",d:"Government cannot establish or endorse a religion (1st Amendment).",u:3},
+  {t:"Free Exercise Clause",d:"Right to practice religion without government interference (1st Amendment).",u:3},
+  {t:"Exclusionary Rule",d:"Illegally obtained evidence inadmissible in court (Mapp v. Ohio).",u:3},
+  {t:"Strict Scrutiny",d:"Highest judicial review standard — govt must show compelling interest (race, religion).",u:3},
+  {t:"Intermediate Scrutiny",d:"Mid-level review for gender classifications — important government interest required.",u:3},
+  {t:"Rational Basis Test",d:"Lowest review — law must be rationally related to legitimate interest (age, disability).",u:3},
+  {t:"Political Socialization",d:"Lifelong process of developing political attitudes; family is strongest influence.",u:4},
+  {t:"Linkage Institution",d:"Channel connecting people to government: parties, interest groups, elections, media.",u:4},
+  {t:"Public Opinion",d:"Collective attitudes of citizens about political issues, leaders, and institutions.",u:4},
+  {t:"Sampling Error",d:"Margin of error in polls — ±3% means true value within 3 points of reported.",u:4},
+  {t:"Trustee Model",d:"Representatives use own judgment to serve public good.",u:4},
+  {t:"Delegate Model",d:"Representatives vote according to constituents' preferences.",u:4},
+  {t:"Gerrymandering",d:"Manipulating district boundaries to favor one political party.",u:5},
+  {t:"PAC (Political Action Committee)",d:"Donates directly to candidates with contribution limits ($5,000/election).",u:5},
+  {t:"Super PAC",d:"Unlimited independent expenditures; cannot coordinate with campaigns.",u:5},
+  {t:"501(c)(4) Dark Money",d:"Social welfare orgs that engage in politics without disclosing donors.",u:5},
+  {t:"Duverger's Law",d:"Winner-take-all elections tend to produce two-party systems.",u:5},
+  {t:"Realignment",d:"Major shift in party coalitions, often triggered by a critical election.",u:5},
+  {t:"Dealignment",d:"Weakening of party ties — rise of independents and split-ticket voting.",u:5},
+  {t:"Agenda Setting",d:"Media's power to influence which issues the public thinks about.",u:5},
+  {t:"Framing",d:"How media presents an issue influences how the public interprets it.",u:5}
+];
+
+function renderTerms() {
+  const grid = document.getElementById('termsGrid');
+  grid.innerHTML = '';
+  const query = (document.getElementById('termSearch').value || '').toLowerCase();
+  const filtered = allTerms.filter(t => !query || t.t.toLowerCase().includes(query) || t.d.toLowerCase().includes(query));
+  filtered.sort((a,b) => a.t.localeCompare(b.t));
+  filtered.forEach(t => {
+    const card = document.createElement('div');
+    card.className = 'term-card';
+    card.innerHTML = `<div class="term-word">${t.t}</div><div class="tap-hint">Click to reveal</div><div class="term-def">${t.d}</div>`;
+    card.addEventListener('click', () => card.classList.toggle('open'));
+    grid.appendChild(card);
+  });
+  if (filtered.length === 0) grid.innerHTML = '<p style="color:#adb5bd;padding:1rem;">No matching terms found.</p>';
+}
+function filterTerms() { renderTerms(); }
+renderTerms();
+
+// ===== MCQ DATA =====
+const mcqData = [
+  // ===========================
+  // UNIT 1 — Foundations (15 questions)
+  // ===========================
+  {q:"Which of the following best describes the concept of federalism?",opts:["All power resides in the national government","Power is divided between national and state governments","State governments have supreme authority","The judiciary allocates all powers"],ans:1,exp:"Federalism divides power between national and state governments, with enumerated, reserved, and concurrent powers.",unit:1},
+  {q:"In Federalist No. 10, Madison argued that a large republic would:",opts:["Eliminate factions entirely","Make it harder for any single faction to dominate","Require direct democracy","Concentrate power in qualified citizens"],ans:1,exp:"Madison argued many competing factions in a large republic prevent any one from gaining majority control.",unit:1},
+  {q:"The Necessary and Proper Clause has been used primarily to:",opts:["Create the Bill of Rights","Expand congressional power through implied powers","Grant the president executive order authority","Allow state nullification of federal laws"],ans:1,exp:"The Elastic Clause grants Congress implied powers. McCulloch v. Maryland (1819) affirmed this broad interpretation.",unit:1},
+  {q:"The Great Compromise at the Constitutional Convention resolved a dispute about:",opts:["Slavery and the slave trade","Presidential election methods","Representation in the national legislature","The power of judicial review"],ans:2,exp:"The Great Compromise created a bicameral legislature: Senate with equal representation and House with proportional representation.",unit:1},
+  {q:"Which foundational document warned that a large republic would lead to tyranny and demanded a Bill of Rights?",opts:["Federalist No. 10","Federalist No. 51","Brutus No. 1","Federalist No. 78"],ans:2,exp:"Brutus No. 1, an Anti-Federalist paper, argued a large republic couldn't represent the people and demanded protections for individual liberty.",unit:1},
+  {q:"The Supremacy Clause (Article VI) establishes that:",opts:["State constitutions override federal law","The president's executive orders override all other laws","The Constitution and federal law are the supreme law of the land","The Supreme Court has final authority over all political questions"],ans:2,exp:"The Supremacy Clause establishes that the Constitution and federal law take precedence over state laws.",unit:1},
+  {q:"McCulloch v. Maryland (1819) established two important principles:",opts:["Judicial review and separation of powers","Implied powers and federal supremacy over states","Freedom of speech and freedom of the press","State sovereignty and nullification"],ans:1,exp:"McCulloch upheld the Bank of the United States under implied powers (Necessary & Proper Clause) and ruled states cannot tax a federal institution (federal supremacy).",unit:1},
+  {q:"Which of the following is a concurrent power shared by both federal and state governments?",opts:["Coining money","Declaring war","Levying taxes","Conducting foreign policy"],ans:2,exp:"Taxation is a concurrent power — both levels of government can levy taxes. Coining money, declaring war, and foreign policy are exclusively federal.",unit:1},
+  {q:"The primary purpose of the Bill of Rights was to:",opts:["Establish the three branches of government","Protect individual liberties from the federal government","Grant voting rights to all citizens","Regulate interstate commerce"],ans:1,exp:"The Bill of Rights (first 10 amendments) was added to protect individual liberties from federal government overreach, fulfilling an Anti-Federalist demand.",unit:1},
+  {q:"Federalist No. 51 argues that the best way to prevent tyranny is through:",opts:["A strong executive with broad powers","Direct democracy and popular referendums","Separation of powers and checks and balances","A single powerful national legislature"],ans:2,exp:"Madison argued in Federalist No. 51 that dividing power among branches that check each other ('ambition must be made to counteract ambition') prevents tyranny.",unit:1},
+  {q:"The Articles of Confederation failed primarily because the national government lacked the power to:",opts:["Conduct foreign affairs","Declare war","Tax and regulate commerce","Amend the Articles"],ans:2,exp:"Under the Articles, Congress couldn't levy taxes or regulate interstate commerce, leaving the government unable to fund itself or manage the economy.",unit:1},
+  {q:"Categorical grants differ from block grants in that categorical grants:",opts:["Give states complete freedom in spending","Come with specific conditions on how money must be spent","Are funded entirely by state governments","Cannot be used for education or healthcare"],ans:1,exp:"Categorical grants come with strict federal requirements on how the money must be spent. Block grants give states broader flexibility.",unit:1},
+  {q:"Federalist No. 78 argues that the judiciary is the 'least dangerous' branch because it:",opts:["Has the power to enforce its own rulings","Controls the military","Has neither the sword nor the purse","Is elected directly by the people"],ans:2,exp:"Hamilton argued in Federalist No. 78 that the judiciary lacks enforcement power (the sword) and spending power (the purse), making it dependent on the other branches.",unit:1},
+  {q:"The concept of popular sovereignty means that:",opts:["The Supreme Court is the final authority","Government power comes from the consent of the people","States have ultimate authority over the federal government","The president rules by divine right"],ans:1,exp:"Popular sovereignty holds that government legitimacy comes from the will and consent of the governed — a core principle of the Declaration of Independence.",unit:1},
+  {q:"An unfunded mandate is best described as:",opts:["A federal grant given to states without conditions","A state law requiring local governments to raise taxes","A federal requirement on states without providing funding to implement it","A Supreme Court order that Congress must fund a program"],ans:2,exp:"Unfunded mandates require states to comply with federal regulations without receiving federal money to cover the costs, creating tension in fiscal federalism.",unit:1},
+
+  // ===========================
+  // UNIT 2 — Branches of Government (18 questions)
+  // ===========================
+  {q:"The Supreme Court case Marbury v. Madison (1803) is significant because it established:",opts:["Congressional power to regulate commerce","Presidential authority for executive orders","The principle of judicial review","Federal supremacy over state law"],ans:2,exp:"Marbury v. Madison established judicial review — the power to declare laws unconstitutional.",unit:2},
+  {q:"Which of the following is an informal presidential power?",opts:["Vetoing a bill","Nominating a Supreme Court justice","Issuing an executive order","Granting a pardon"],ans:2,exp:"Executive orders are informal powers not explicitly listed in the Constitution. Vetoes, nominations, and pardons are formal powers.",unit:2},
+  {q:"A filibuster can be ended through:",opts:["Reconciliation","Cloture","A presidential veto","A conference committee vote"],ans:1,exp:"Cloture requires 60 Senate votes to end a filibuster and proceed to a vote.",unit:2},
+  {q:"Which best exemplifies an iron triangle?",opts:["President, Congress, and Supreme Court collaborating","Congressional committee, interest group, and bureaucratic agency cooperating","Federal, state, and local governments sharing power","House, Senate, and conference committee crafting a bill"],ans:1,exp:"An iron triangle is the mutually beneficial relationship among a congressional committee, bureaucratic agency, and interest group.",unit:2},
+  {q:"The War Powers Resolution was designed to:",opts:["Give the president unlimited military authority","Limit the president's ability to commit troops without congressional approval","Abolish the president's role as commander-in-chief","Allow Congress to declare war without presidential consent"],ans:1,exp:"The War Powers Resolution (1973) requires the president to notify Congress within 48 hours of committing troops and limits deployments to 60 days without congressional authorization.",unit:2},
+  {q:"Which of the following is a check the legislative branch has on the judicial branch?",opts:["Judicial review of laws","Power to impeach and remove federal judges","Presidential pardon power","Issuing executive orders"],ans:1,exp:"Congress can impeach and remove federal judges. Congress can also change court jurisdiction and propose constitutional amendments to override court decisions.",unit:2},
+  {q:"Which body has the sole power to impeach a federal official?",opts:["The Senate","The Supreme Court","The House of Representatives","The Electoral College"],ans:2,exp:"The House has the sole power of impeachment (bringing charges). The Senate conducts the trial and can convict/remove with a 2/3 vote.",unit:2},
+  {q:"The 'Rule of Four' refers to:",opts:["Four justices needed to grant certiorari","Four votes needed to override a presidential veto","Four amendments in the Bill of Rights related to criminal justice","Four standing committees required to review every bill"],ans:0,exp:"The Rule of Four means at least 4 of 9 Supreme Court justices must agree to hear a case before certiorari is granted.",unit:2},
+  {q:"Which of the following is a power exclusive to the Senate?",opts:["Initiating revenue bills","Impeaching federal officials","Ratifying treaties","Determining the rules for debate in the House"],ans:2,exp:"Only the Senate can ratify treaties (requiring a 2/3 vote). The House initiates revenue bills and has sole impeachment power.",unit:2},
+  {q:"A conference committee is best described as:",opts:["A permanent committee that handles bills in one policy area","A temporary committee formed to reconcile differences between House and Senate versions of a bill","A committee that investigates executive misconduct","A joint committee that audits government spending"],ans:1,exp:"Conference committees are temporary, bipartisan panels formed when the House and Senate pass different versions of the same bill. They produce a compromise version.",unit:2},
+  {q:"The president's State of the Union address is an example of which constitutional provision?",opts:["The Necessary and Proper Clause","The Take Care Clause","Article II requiring the president to report to Congress on the state of the union","The Presentment Clause"],ans:2,exp:"Article II, Section 3 requires the president to 'from time to time give to the Congress Information of the State of the Union.' This has become an annual address to set the legislative agenda.",unit:2},
+  {q:"Which of the following best describes judicial activism?",opts:["Judges strictly following the original text of the Constitution","Judges deferring to the decisions of the elected branches","Judges interpreting the Constitution broadly to advance rights or policy goals","Judges refusing to hear cases on political questions"],ans:2,exp:"Judicial activism involves judges interpreting the Constitution broadly, sometimes going beyond the text to protect rights or shape policy. Judicial restraint is its opposite — deferring to elected branches.",unit:2},
+  {q:"The Speaker of the House is significant because he or she:",opts:["Presides over the Senate during impeachment trials","Is second in the presidential line of succession","Serves as the chief diplomat for Congress","Is appointed by the president"],ans:1,exp:"The Speaker of the House is elected by House members, presides over debates, influences the legislative agenda, and is second in the presidential line of succession (after the VP).",unit:2},
+  {q:"The bureaucracy is sometimes called the 'fourth branch' of government because it:",opts:["Was created by the Fourth Amendment","Has the power to declare laws unconstitutional","Has significant policy-making influence through rulemaking and implementation","Is directly elected by the people"],ans:2,exp:"Federal agencies exercise quasi-legislative (rulemaking) and quasi-judicial (adjudication) powers. Their ability to interpret and implement laws gives them significant policy influence.",unit:2},
+  {q:"Discretionary spending differs from mandatory spending in that discretionary spending:",opts:["Is required by existing law and cannot be changed","Must be approved annually through the appropriations process","Includes entitlement programs like Social Security and Medicare","Makes up the majority of the federal budget"],ans:1,exp:"Discretionary spending (defense, education, etc.) must be approved annually through congressional appropriations. Mandatory spending (Social Security, Medicare) is set by existing law.",unit:2},
+  {q:"A pocket veto occurs when:",opts:["The president vetoes a bill and sends it back to Congress with objections","Congress overrides a presidential veto with a 2/3 vote","The president takes no action on a bill and Congress adjourns within 10 days","The president signs a bill into law with a signing statement"],ans:2,exp:"A pocket veto occurs when the president does not sign a bill within 10 days and Congress has adjourned. The bill dies without the president formally vetoing it, and Congress cannot override.",unit:2},
+  {q:"Which of the following is the best example of Congress exercising its oversight function?",opts:["Passing a new tax bill","A committee holding hearings to investigate an executive agency's actions","Confirming a Supreme Court nominee","Overriding a presidential veto"],ans:1,exp:"Congressional oversight involves monitoring and reviewing executive branch agencies. Committee hearings and investigations are primary tools. Confirmation and veto override are separate checks.",unit:2},
+  {q:"The concept of 'logrolling' in Congress refers to:",opts:["A parliamentary procedure to end debate","The practice of legislators trading votes to pass each other's bills","A presidential strategy for getting legislation passed","The process of assigning bills to committees"],ans:1,exp:"Logrolling is the exchange of political favors — legislators agree to vote for each other's preferred bills, helping both parties get legislation passed.",unit:2},
+
+  // ===========================
+  // UNIT 3 — Civil Liberties & Rights (16 questions)
+  // ===========================
+  {q:"The incorporation doctrine is based primarily on which amendment?",opts:["1st Amendment","10th Amendment","14th Amendment","5th Amendment"],ans:2,exp:"Selective incorporation uses the 14th Amendment's Due Process Clause to apply Bill of Rights protections to state governments.",unit:3},
+  {q:"In Tinker v. Des Moines, the Court ruled that:",opts:["Schools can ban all forms of student expression","Students retain First Amendment rights in school","Obscene speech is protected for minors","Schools must provide a forum for all political views"],ans:1,exp:"The Court ruled students don't 'shed their constitutional rights at the schoolhouse gate' — symbolic speech (armbands) is protected unless it causes substantial disruption.",unit:3},
+  {q:"The exclusionary rule, established in Mapp v. Ohio, means that:",opts:["Defendants have the right to exclude jurors","Evidence obtained through illegal searches cannot be used in court","Certain amendments are excluded from incorporation","Citizens can be excluded from public facilities based on conduct"],ans:1,exp:"The exclusionary rule prevents illegally obtained evidence from being used in criminal trials, protecting 4th Amendment rights.",unit:3},
+  {q:"Brown v. Board of Education overturned which earlier precedent?",opts:["Marbury v. Madison","Dred Scott v. Sandford","Plessy v. Ferguson","McCulloch v. Maryland"],ans:2,exp:"Brown overturned Plessy v. Ferguson's 'separate but equal' doctrine, ruling segregated schools inherently violate Equal Protection.",unit:3},
+  {q:"The 'clear and present danger' test was established in:",opts:["Tinker v. Des Moines","Schenck v. United States","New York Times v. United States","Engel v. Vitale"],ans:1,exp:"Schenck v. U.S. (1919) established that speech creating a 'clear and present danger' can be restricted.",unit:3},
+  {q:"McDonald v. Chicago (2010) is significant because it:",opts:["Established the right to privacy","Incorporated the 2nd Amendment right to bear arms to state governments","Created strict scrutiny for racial classifications","Banned gerrymandering in federal elections"],ans:1,exp:"McDonald v. Chicago incorporated the 2nd Amendment to apply to state and local governments through the 14th Amendment.",unit:3},
+  {q:"Engel v. Vitale (1962) ruled that:",opts:["Students can pray silently in school","State-sponsored prayer in public schools violates the Establishment Clause","Public schools must teach all world religions equally","Religious organizations are exempt from all federal laws"],ans:1,exp:"The Court ruled that state-composed prayers in public schools violate the Establishment Clause's prohibition against government endorsement of religion, even if participation is voluntary.",unit:3},
+  {q:"Gideon v. Wainwright (1963) established the right to:",opts:["Remain silent during police interrogation","A court-appointed attorney in felony cases","Trial by jury in all criminal cases","Bail in non-capital offenses"],ans:1,exp:"The Court ruled the 6th Amendment right to counsel is fundamental, requiring states to provide a lawyer for defendants who cannot afford one in felony cases.",unit:3},
+  {q:"New York Times Co. v. United States (1971) is known as the 'Pentagon Papers' case because it ruled that:",opts:["Newspapers can be sued for libel by public officials","The government cannot exercise prior restraint to prevent publication","Journalists must reveal their confidential sources","Freedom of the press does not extend to classified information"],ans:1,exp:"The Court ruled the government could not use prior restraint to stop the New York Times from publishing classified Vietnam War documents, protecting press freedom.",unit:3},
+  {q:"Wisconsin v. Yoder (1972) upheld the right of Amish families to:",opts:["Homeschool their children without any government oversight","Withdraw children from public school after 8th grade based on religious beliefs","Refuse to pay taxes on religious grounds","Establish their own court system within their community"],ans:1,exp:"The Court ruled the Free Exercise Clause protects the Amish right to remove their children from compulsory schooling after 8th grade, as formal education conflicted with their religious practices.",unit:3},
+  {q:"Miranda v. Arizona (1966) requires police to:",opts:["Obtain a warrant before any arrest","Inform arrested persons of their rights before custodial interrogation","Allow suspects to contact an attorney within one hour of arrest","Videotape all interrogations"],ans:1,exp:"Miranda requires police to inform suspects of their 5th Amendment right against self-incrimination and 6th Amendment right to counsel before custodial interrogation. Statements obtained without these warnings are inadmissible.",unit:3},
+  {q:"Strict scrutiny is the judicial standard applied to laws that classify people by:",opts:["Age or disability","Gender or sex","Race, ethnicity, or religion","Wealth or income level"],ans:2,exp:"Strict scrutiny is the highest level of judicial review, applied to classifications based on race, ethnicity, or religion. The government must demonstrate a compelling interest and that the law is narrowly tailored.",unit:3},
+  {q:"The Voting Rights Act of 1965 was primarily aimed at:",opts:["Lowering the voting age to 18","Eliminating discriminatory voting practices like literacy tests","Establishing the Electoral College system","Granting women the right to vote"],ans:1,exp:"The VRA eliminated literacy tests and other practices used to disenfranchise Black voters, especially in the South. It authorized federal oversight of elections in areas with histories of discrimination.",unit:3},
+  {q:"Shaw v. Reno (1993) addressed the issue of:",opts:["Campaign finance reform","School prayer in public schools","Racial gerrymandering of congressional districts","Affirmative action in college admissions"],ans:2,exp:"The Court ruled that racial gerrymandering — drawing bizarrely shaped districts primarily based on race — must be subject to strict scrutiny under the Equal Protection Clause.",unit:3},
+  {q:"Which of the following is an example of the Free Exercise Clause in action?",opts:["A city banning religious displays in public parks","A court ruling that school prayer is unconstitutional","A law exempting a religious group from a generally applicable law","Congress passing a law declaring an official national religion"],ans:2,exp:"The Free Exercise Clause protects individuals' right to practice their religion. Exemptions from general laws for religious reasons (like in Wisconsin v. Yoder) are Free Exercise protections.",unit:3},
+  {q:"The 14th Amendment's Equal Protection Clause has been used to:",opts:["Protect the right to bear arms","Establish the president's term limits","Challenge laws that discriminate against specific groups of people","Give Congress the power to regulate interstate commerce"],ans:2,exp:"The Equal Protection Clause prohibits states from denying any person equal protection of the laws. It has been the constitutional basis for challenging racial segregation, gender discrimination, and other unequal treatment.",unit:3},
+
+  // ===========================
+  // UNITS 4-5 — Ideologies & Participation (16 questions)
+  // ===========================
+  {q:"Which factor is the strongest predictor of voter turnout?",opts:["Race/ethnicity","Education level","Gender","Geographic location"],ans:1,exp:"Education is consistently the strongest predictor — higher education correlates with greater political engagement and voting.",unit:45},
+  {q:"Which correctly describes PACs vs. Super PACs?",opts:["Both donate unlimited amounts directly to candidates","Super PACs coordinate with campaigns while PACs cannot","PACs donate directly with limits; Super PACs make unlimited independent expenditures","PACs were ruled unconstitutional by Citizens United"],ans:2,exp:"PACs donate directly with limits. Super PACs make unlimited independent expenditures but cannot coordinate with campaigns.",unit:45},
+  {q:"Citizens United v. FEC (2010) ruled that:",opts:["Individual campaign contributions have no limits","Corporate and union independent expenditures are protected speech","Super PACs can coordinate directly with campaigns","All campaign finance regulations are unconstitutional"],ans:1,exp:"Citizens United ruled that corporations and unions can make unlimited independent expenditures as protected speech under the 1st Amendment.",unit:45},
+  {q:"The media's ability to influence which issues the public considers important is called:",opts:["Framing","Priming","Agenda setting","Gatekeeping"],ans:2,exp:"Agenda setting is the media's power to influence what issues people think about by choosing what stories to cover prominently.",unit:45},
+  {q:"Duverger's Law suggests that single-member district plurality elections tend to produce:",opts:["Multi-party systems","Two-party systems","One-party dominance","Coalition governments"],ans:1,exp:"Winner-take-all elections discourage third parties because votes for losing candidates are 'wasted,' producing two dominant parties.",unit:45},
+  {q:"Political socialization is best described as:",opts:["The government's efforts to educate citizens","The process by which individuals develop political attitudes and beliefs","Mandatory civic education in public schools","The media's influence on election outcomes"],ans:1,exp:"Political socialization is the lifelong process of developing political attitudes. Family is the strongest early agent.",unit:45},
+  {q:"Which model of representation describes a legislator who votes based on their own judgment of the public good?",opts:["Delegate model","Trustee model","Politico model","Partisan model"],ans:1,exp:"The trustee model says representatives should use their own judgment rather than simply reflecting constituents' opinions.",unit:45},
+  {q:"Buckley v. Valeo (1976) established that:",opts:["Campaign donations to candidates can be unlimited","Spending money in elections is a form of protected speech","The FEC has no authority to regulate campaigns","Public financing of elections is unconstitutional"],ans:1,exp:"The Court ruled that spending money to influence elections is protected by the 1st Amendment. It upheld contribution limits but struck down expenditure limits.",unit:45},
+  {q:"The 'spoiler effect' in elections refers to:",opts:["When negative campaign ads reduce voter turnout","When a third-party candidate draws votes away from a major-party candidate, changing the outcome","When incumbents use their office for campaign advantages","When media coverage influences election results"],ans:1,exp:"The spoiler effect occurs when a third-party candidate takes enough votes from one major-party candidate to tip the election to the other. This discourages voting for third parties.",unit:45},
+  {q:"Which of the following best describes a conservative political ideology?",opts:["Support for expanded social programs and progressive taxation","Preference for limited government in economic matters and traditional social values","Support for government regulation of the economy and personal freedoms","Belief in minimal government involvement in all matters"],ans:1,exp:"Conservatives generally favor free markets, lower taxes, limited regulation, individual responsibility, traditional values, and strong national defense.",unit:45},
+  {q:"A scientific public opinion poll requires all of the following EXCEPT:",opts:["A random sample of the population","An appropriately large sample size","Questions designed to produce a specific result","A reported margin of error"],ans:2,exp:"Scientific polls require random sampling, adequate sample size, and margin of error. Questions designed to produce a specific result are characteristic of illegitimate push polls.",unit:45},
+  {q:"The 'horse-race' style of media coverage focuses on:",opts:["In-depth policy analysis and candidate platforms","Which candidate is ahead in polls and campaign strategy","Investigative journalism exposing corruption","Local issues affecting individual congressional districts"],ans:1,exp:"Horse-race journalism emphasizes who is winning or losing (poll numbers, campaign strategy, fundraising) rather than substantive policy analysis.",unit:45},
+  {q:"Which amendment eliminated poll taxes as a requirement for voting?",opts:["15th Amendment","19th Amendment","24th Amendment","26th Amendment"],ans:2,exp:"The 24th Amendment (1964) banned poll taxes in federal elections. The 15th protects voting regardless of race, 19th grants women's suffrage, and 26th lowered the voting age to 18.",unit:45},
+  {q:"Interest groups attempt to influence Supreme Court decisions primarily through:",opts:["Direct lobbying of Supreme Court justices","Filing amicus curiae (friend of the court) briefs","Campaign contributions to judicial candidates","Organizing protests outside the Supreme Court building"],ans:1,exp:"Interest groups submit amicus curiae briefs presenting legal arguments and information to influence the Court's decisions. Direct lobbying of justices is inappropriate and ineffective.",unit:45},
+  {q:"The 'gender gap' in American politics refers to:",opts:["The difference in the number of male and female elected officials","The difference in political attitudes and voting behavior between men and women","The pay disparity between male and female government employees","The difference in voter registration rates between men and women"],ans:1,exp:"The gender gap refers to the difference in political opinions and voting patterns between men and women. Women tend to favor Democratic candidates and support social programs at higher rates.",unit:45},
+  {q:"Which of the following is a linkage institution?",opts:["The Supreme Court","The Federal Reserve","A political party","The Joint Chiefs of Staff"],ans:2,exp:"Linkage institutions connect citizens to government and include political parties, interest groups, elections, and the media. They translate public preferences into policy and government action.",unit:45}
+];
+
+let mcqScore = 0, mcqAnswered = 0;
+
+function renderMCQ() {
+  mcqScore = 0; mcqAnswered = 0; updateMCQScore();
+  const containers = {all:'mcqContainerAll',1:'mcqContainerU1',2:'mcqContainerU2',3:'mcqContainerU3',45:'mcqContainerU45'};
+  Object.values(containers).forEach(id => document.getElementById(id).innerHTML = '');
+
+  mcqData.forEach((q, i) => {
+    const box = document.createElement('div');
+    box.className = 'quiz-box';
+    box.id = 'mcq_' + i;
+    const unitLabel = q.unit === 45 ? 'Units 4–5' : 'Unit ' + q.unit;
+    let optsHtml = q.opts.map((opt, j) =>
+      `<label id="mcq_${i}_${j}" onclick="checkMCQ(${i},${j})">${String.fromCharCode(65+j)}) ${opt}</label>`
+    ).join('');
+    box.innerHTML = `<span class="q-label">${unitLabel}</span><div class="q-text">${i+1}. ${q.q}</div><div class="options">${optsHtml}</div><div class="explanation" id="mcqexp_${i}">${q.exp}</div>`;
+    document.getElementById(containers.all).appendChild(box.cloneNode(true));
+    // fix event listeners on clone
+    const allBox = document.getElementById(containers.all).lastChild;
+    allBox.querySelectorAll('.options label').forEach((l, j) => {
+      l.id = 'mcqA_' + i + '_' + j;
+      l.onclick = () => checkMCQin(allBox, i, j, 'A');
+    });
+    allBox.querySelector('.explanation').id = 'mcqexpA_' + i;
+
+    // unit-specific
+    const unitKey = q.unit;
+    if (containers[unitKey]) {
+      const unitBox = box.cloneNode(true);
+      unitBox.querySelectorAll('.options label').forEach((l, j) => {
+        l.id = 'mcqU_' + i + '_' + j;
+        l.onclick = () => checkMCQin(unitBox, i, j, 'U');
+      });
+      unitBox.querySelector('.explanation').id = 'mcqexpU_' + i;
+      document.getElementById(containers[unitKey]).appendChild(unitBox);
+    }
+  });
+}
+
+function checkMCQin(boxEl, qi, oi, prefix) {
+  const q = mcqData[qi];
+  const labels = boxEl.querySelectorAll('.options label');
+  if (labels[0].classList.contains('disabled')) return;
+  mcqAnswered++;
+  labels.forEach((l, j) => {
+    l.classList.add('disabled');
+    if (j === q.ans) l.classList.add('correct');
+    if (j === oi && j !== q.ans) l.classList.add('wrong');
+  });
+  if (oi === q.ans) mcqScore++;
+  boxEl.querySelector('.explanation').classList.add('show');
+  updateMCQScore();
+}
+
+function checkMCQ(qi, oi) {
+  // fallback
+  const box = document.getElementById('mcq_' + qi);
+  if (box) checkMCQin(box, qi, oi, '');
+}
+
+function updateMCQScore() {
+  document.getElementById('mcqScoreText').textContent = `Score: ${mcqScore} / ${mcqAnswered}`;
+  const pct = mcqData.length > 0 ? (mcqAnswered / mcqData.length) * 100 : 0;
+  document.getElementById('mcqProgress').style.width = pct + '%';
+}
+
+function resetMCQ() { renderMCQ(); window.scrollTo({top:0,behavior:'smooth'}); }
+renderMCQ();
+</script>
+
+</body>
+</html>
